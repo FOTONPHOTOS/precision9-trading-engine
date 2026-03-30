@@ -252,8 +252,8 @@ This is a portfolio project. For questions or collaboration, contact the author.
 
 ##  Contact
 
-- **GitHub:** [Your Profile]
-- **Email:** your.email@example.com
+- **GitHub:** [https://github.com/FOTONPHOTOS]
+- **Email:** aniebochisom@gmail.com
 
 ---
 
