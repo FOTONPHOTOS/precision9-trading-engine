@@ -1,0 +1,109 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+myenv/
+myenv_clean/
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Environment Variables (keep .env.example, never .env)
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Database files (SQLite, etc.)
+*.db
+*.sqlite
+*.sqlite3
+
+# Trade logs and data files
+trade_logs/
+*.jsonl
+*.json
+!app/horus_config.json
+app/*.json
+app/*.db
+app/eyes_of_horus/*.json
+app/eyes_of_horus/*.db
+app/trade_logs/
+Trendline_Detectory/*.json
+Trendline_Detectory/*.db
+Trendline_Detectory/eyes_of_horus/*.json
+Trendline_Detectory/eyes_of_horus/*.db
+Trendline_Detectory/libs/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Large data files
+*.tar.gz
+*.zip
+*.gif
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Specific to this project
+liq.txt
+get-pip.py

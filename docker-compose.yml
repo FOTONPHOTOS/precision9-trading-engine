@@ -1,0 +1,122 @@
+version: '3.8'
+
+# This compose file defines the complete Arsenal trading bot ecosystem.
+# Each component (Helios, Aegis, each bot) runs as a separate 'service'.
+# They all share the same environment defined by the Dockerfile.
+
+services:
+  # This service runs first. It's a one-off script to set leverage levels.
+  set-leverage:
+    build: .
+    image: arsenalvps_python311
+    # The 'app' directory in the container holds all our code.
+    working_dir: /app/config_tuning
+    env_file: .env # Loads API keys from your .env file.
+    command: ["python", "set_leverage.py"]
+    # We don't restart this; it only needs to run once.
+
+  helios:
+    build: .
+    image: arsenalvps_python311
+    # This service depends on the leverage setter completing successfully.
+    depends_on:
+      set-leverage:
+        condition: service_completed_successfully
+    working_dir: /app
+    env_file: .env
+    command: ["/bin/sh", "-c", "echo 'Attempting to start Helios...' && python helios_server.py"]
+    # 'restart: unless-stopped' ensures the service automatically restarts if it crashes.
+    restart: unless-stopped
+    # Add a delay to ensure it's fully up before other services connect.
+    healthcheck:
+      test: ["CMD-SHELL", "ps aux | grep '[h]elios_server.py' || exit 1"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+      start_period: 60s
+
+  aegis:
+    build: .
+    image: arsenalvps_python311
+    depends_on:
+      helios:
+        condition: service_healthy # Waits for Helios to be ready.
+    working_dir: /app/eyes_of_horus
+    env_file: .env
+    command: ["python", "main.py", "--live"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "test", "-f", "aegis_state.json"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+      start_period: 120s
+
+  # --- Trading Bot Services ---
+  # Each bot runs as its own service, depending on Aegis.
+
+  bot-ethusdt:
+    build: .
+    image: arsenalvps_python311
+    depends_on:
+      aegis:
+        condition: service_healthy
+    working_dir: /app
+    env_file: .env
+    command: ["python", "live_arsenal_horus_integrated.py", "--live", "--symbol", "ETHUSDT"]
+    restart: unless-stopped
+
+  bot-btcusdt:
+    build: .
+    image: arsenalvps_python311
+    depends_on:
+      aegis:
+        condition: service_healthy
+    working_dir: /app
+    env_file: .env
+    command: ["python", "live_arsenal_horus_integrated.py", "--live", "--symbol", "BTCUSDT"]
+    restart: unless-stopped
+
+  bot-solusdt:
+    build: .
+    image: arsenalvps_python311
+    depends_on:
+      aegis:
+        condition: service_healthy
+    working_dir: /app
+    env_file: .env
+    command: ["python", "live_arsenal_horus_integrated.py", "--live", "--symbol", "SOLUSDT"]
+    restart: unless-stopped
+
+  bot-xrpusdt:
+    build: .
+    image: arsenalvps_python311
+    depends_on:
+      aegis:
+        condition: service_healthy
+    working_dir: /app
+    env_file: .env
+    command: ["python", "live_arsenal_horus_integrated.py", "--live", "--symbol", "XRPUSDT"]
+    restart: unless-stopped
+
+  bot-bnbusdt:
+    build: .
+    image: arsenalvps_python311
+    depends_on:
+      aegis:
+        condition: service_healthy
+    working_dir: /app
+    env_file: .env
+    command: ["python", "live_arsenal_horus_integrated.py", "--live", "--symbol", "BNBUSDT"]
+    restart: unless-stopped
+
+  bot-linkusdt:
+    build: .
+    image: arsenalvps_python311
+    depends_on:
+      aegis:
+        condition: service_healthy
+    working_dir: /app
+    env_file: .env
+    command: ["python", "live_arsenal_horus_integrated.py", "--live", "--symbol", "LINKUSDT"]
+    restart: unless-stopped

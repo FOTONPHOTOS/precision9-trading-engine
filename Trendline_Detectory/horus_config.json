@@ -1,0 +1,20 @@
+{
+    "DEFAULT": {
+        "min_entry_quality": 50,
+        "min_imbalance_ratio": 1.15,
+        "required_momentum": ["accelerating"],
+        "min_cvd_z_score": 1.5
+    },
+    "ETHUSDT": {
+        "min_entry_quality": 35,
+        "min_imbalance_ratio": 1.0,
+        "required_momentum": ["accelerating", "stable"],
+        "min_cvd_z_score": 1.2
+    },
+    "BTCUSDT": {
+        "min_entry_quality": 35,
+        "min_imbalance_ratio": 1.0,
+        "required_momentum": ["accelerating", "stable"],
+        "min_cvd_z_score": 1.2
+    }
+}

@@ -1,0 +1,43 @@
+# Arsenal VPS Trading System - Requirements
+# Install with: pip install -r requirements.txt
+
+# Exchange APIs
+pybit>=5.0.0
+python-binance>=1.0.17
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+ta-lib>=0.4.0
+
+# Technical Analysis
+pandas-ta>=0.3.14b
+smartmoneyconcepts>=0.0.26
+
+# Database
+aiosqlite>=0.19.0
+sqlalchemy>=2.0.0
+redis>=5.0.0
+
+# Web & API
+fastapi>=0.100.0
+uvicorn>=0.23.0
+websockets>=11.0
+aiohttp>=3.8.0
+requests>=2.31.0
+aiofiles>=23.0.0
+
+# Environment & Config
+python-dotenv>=1.0.0
+
+# Utilities
+python-dateutil>=2.8.2
+pytz>=2023.3
+scipy>=1.10.0
+
+# Logging & Monitoring
+rich>=13.0.0
+
+# Testing (optional)
+pytest>=7.0.0
+pytest-asyncio>=0.21.0

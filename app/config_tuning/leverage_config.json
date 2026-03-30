@@ -1,0 +1,11 @@
+{
+  "leverage_settings": {
+    "BTCUSDT": 3,
+    "ETHUSDT": 2,
+    "SOLUSDT": 2,
+    "XRPUSDT": 2,
+    "BNBUSDT": 2,
+    "LINKUSDT": 2,
+    "DOGEUSDT": 2
+  }
+}

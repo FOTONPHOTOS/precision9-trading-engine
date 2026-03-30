@@ -1,0 +1,42 @@
+#!/bin/bash
+# Arsenal VPS Trading System - All Component Launch Script
+
+echo "==============================================="
+echo "    ARSENAL VPS TRADING SYSTEM LAUNCHER"
+echo "==============================================="
+
+echo ""
+echo "Available Trading System Components:"
+echo "1. Helios Server (Central Intelligence Hub)"
+echo "2. Eyes of Horus (Aegis - Market Analysis Engine)"
+echo "3. Main Trading Bot (ETHUSDT)"
+echo "4. Main Trading Bot (BTCUSDT)"
+echo "5. Main Trading Bot (BNBUSDT)"
+echo "6. Main Trading Bot (XRPUSDT)"
+echo "7. Main Trading Bot (SOLUSDT)"
+echo ""
+echo "To run any component, use the corresponding script in /root/Desktop/Arsenal VPS/app/"
+echo ""
+echo "Examples:"
+echo "  ./run_helios_server.sh"
+echo "  ./run_eyes_of_horus.sh"
+echo "  ./run_trading_bot_eth.sh"
+echo "  ./run_trading_bot_btc.sh"
+echo "  ./run_trading_bot_bnb.sh"
+echo "  ./run_trading_bot_xrp.sh"
+echo "  ./run_trading_bot_sol.sh"
+echo ""
+echo "For the complete system, use:"
+echo "  /root/Desktop/Arsenal VPS/launch_complete_system.sh"
+echo ""
+echo "To check running processes:"
+echo "  /root/Desktop/Arsenal VPS/check_processes.sh"
+echo ""
+echo "To stop all processes:"
+echo "  /root/Desktop/Arsenal VPS/stop_all_processes.sh"
+echo "==============================================="
+
+# Show running processes
+echo ""
+echo "Current running Arsenal processes:"
+ps aux | grep -E "(helios_server|eyes_of_horus|live_arsenal_horus_integrated)" | grep -v grep | grep -v launch_all_components.sh
