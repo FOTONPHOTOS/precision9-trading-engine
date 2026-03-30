@@ -27,7 +27,7 @@ print(f"{'='*70}")
 # - API Key: 20-30 characters
 # - Secret: 40-50 characters
 if len(API_KEY) < 20:
-    print(f"\n⚠️  WARNING: API Key is shorter than typical Bybit keys")
+    print(f"\n  WARNING: API Key is shorter than typical Bybit keys")
     print(f"   Expected: 20-30 characters")
     print(f"   Got: {len(API_KEY)} characters")
     print(f"\n   Possible issues:")
@@ -36,7 +36,7 @@ if len(API_KEY) < 20:
     print(f"   3. This is an old V1/V2 key (V5 keys are longer)")
 
 if len(API_SECRET) < 40:
-    print(f"\n⚠️  WARNING: API Secret is shorter than typical Bybit secrets")
+    print(f"\n  WARNING: API Secret is shorter than typical Bybit secrets")
     print(f"   Expected: 40-50 characters")
     print(f"   Got: {len(API_SECRET)} characters")
 
@@ -73,11 +73,11 @@ for config in configs:
         try:
             result = client.get_server_time()
             if result.get('retCode') == 0:
-                print(f"    ✅ Public API works: {result.get('result', {}).get('timeSecond', 'N/A')}")
+                print(f"     Public API works: {result.get('result', {}).get('timeSecond', 'N/A')}")
             else:
-                print(f"    ❌ Public API failed: {result.get('retMsg')}")
+                print(f"     Public API failed: {result.get('retMsg')}")
         except Exception as e:
-            print(f"    ❌ Error: {e}")
+            print(f"     Error: {e}")
         
         # Test 2: Authenticated endpoint
         print(f"\n[2/3] Testing authenticated endpoint (wallet balance)...")
@@ -90,7 +90,7 @@ for config in configs:
             print(f"    retMsg: {ret_msg}")
             
             if ret_code == 0:
-                print(f"    ✅ AUTHENTICATION SUCCESSFUL!")
+                print(f"     AUTHENTICATION SUCCESSFUL!")
                 balances = result.get('result', {}).get('list', [])
                 if balances:
                     for bal in balances:
@@ -98,21 +98,21 @@ for config in configs:
                         for coin in coins:
                             wb = float(coin.get('walletBalance', 0))
                             if wb > 0:
-                                print(f"       💰 {coin.get('coin')}: ${wb:,.2f}")
-                print(f"\n✅ KEYS ARE VALID ON {name}!")
+                                print(f"        {coin.get('coin')}: ${wb:,.2f}")
+                print(f"\n KEYS ARE VALID ON {name}!")
                 break  # Exit the loop
             elif ret_code == 10003:
-                print(f"    ❌ API Key invalid/expired")
+                print(f"     API Key invalid/expired")
             elif ret_code == 10004:
-                print(f"    ❌ Signature error - Secret key mismatch")
+                print(f"     Signature error - Secret key mismatch")
                 print(f"       Check if secret was copied correctly")
             elif ret_code == 401:
-                print(f"    ❌ Authentication failed")
+                print(f"     Authentication failed")
             else:
-                print(f"    ❌ Error code {ret_code}")
+                print(f"     Error code {ret_code}")
                 
         except Exception as e:
-            print(f"    ❌ Exception: {e}")
+            print(f"     Exception: {e}")
             import traceback
             traceback.print_exc()
         
@@ -123,19 +123,19 @@ for config in configs:
             ret_code = result.get('retCode')
             print(f"    retCode: {ret_code}")
             if ret_code == 0:
-                print(f"    ✅ Positions query works!")
+                print(f"     Positions query works!")
             else:
-                print(f"    ❌ Positions failed: {result.get('retMsg')}")
+                print(f"     Positions failed: {result.get('retMsg')}")
         except Exception as e:
-            print(f"    ❌ Exception: {e}")
+            print(f"     Exception: {e}")
             
     except Exception as e:
-        print(f"❌ Client creation failed: {e}")
+        print(f" Client creation failed: {e}")
 
 print(f"\n{'='*70}")
 print("   RESULT")
 print(f"{'='*70}")
-print(f"\n❌ API keys did not authenticate successfully")
+print(f"\n API keys did not authenticate successfully")
 print(f"\nNext steps:")
 print(f"1. Go to Bybit → API Management")
 print(f"2. Delete this API key")

@@ -51,13 +51,13 @@ sleep 5
 
 # Check if it's running
 if pgrep -f "python.*eyes_of_horus" > /dev/null; then
-    echo "✓ Eyes of Horus restarted successfully with fixes"
-    echo "✓ Max concurrent symbols set to 10 (was 3)"
-    echo "✓ Stop losses fixed at 0.3% (no more tight stops)"
-    echo "✓ Database cleared of stale active records"
+    echo " Eyes of Horus restarted successfully with fixes"
+    echo " Max concurrent symbols set to 10 (was 3)"
+    echo " Stop losses fixed at 0.3% (no more tight stops)"
+    echo " Database cleared of stale active records"
     echo ""
     echo "Check status with: tail -f /root/Desktop/Arsenal VPS/app/eyes_of_horus_reset.log"
 else
-    echo "✗ Eyes of Horus failed to start properly"
+    echo " Eyes of Horus failed to start properly"
     cat /root/Desktop/Arsenal\ VPS/app/eyes_of_horus_reset.log
 fi

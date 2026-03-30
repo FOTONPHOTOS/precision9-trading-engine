@@ -4,7 +4,7 @@
 [![Bybit](https://img.shields.io/badge/Exchange-Bybit-orange.svg)](https://bybit.com)
 [![Binance](https://img.shields.io/badge/Data-Binance-yellow.svg)](https://binance.com)
 
-## 🎯 Overview
+##  Overview
 
 A professional algorithmic trading system for cryptocurrency futures markets featuring:
 
@@ -17,7 +17,7 @@ A professional algorithmic trading system for cryptocurrency futures markets fea
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### Core Components
 
@@ -29,17 +29,17 @@ A professional algorithmic trading system for cryptocurrency futures markets fea
 
 ### Key Capabilities
 
-- ✅ **Real-time market analysis** (CVD, orderbook, liquidity)
-- ✅ **Multi-timeframe trendline detection**
-- ✅ **Smart Money Concepts** (FVG, Order Blocks, Liquidity)
-- ✅ **Dynamic risk management** with real-time adjustments
-- ✅ **Precision TP/SL calculation**
-- ✅ **Position reconciliation** with exchange
-- ✅ **Trade logging** and performance tracking
+-  **Real-time market analysis** (CVD, orderbook, liquidity)
+-  **Multi-timeframe trendline detection**
+-  **Smart Money Concepts** (FVG, Order Blocks, Liquidity)
+-  **Dynamic risk management** with real-time adjustments
+-  **Precision TP/SL calculation**
+-  **Position reconciliation** with exchange
+-  **Trade logging** and performance tracking
 
 ---
 
-## 📸 Live Trading Evidence
+##  Live Trading Evidence
 
 ### Bot Running - Real-time Analysis
 
@@ -53,7 +53,7 @@ A professional algorithmic trading system for cryptocurrency futures markets fea
 
 ---
 
-## 🛠️ Installation
+##  Installation
 
 ### Prerequisites
 
@@ -97,7 +97,7 @@ BINANCE_API_SECRET=your_secret_here
 
 ---
 
-## 🚀 Launch Commands
+##  Launch Commands
 
 ### Individual Component Launch
 
@@ -137,28 +137,28 @@ screen -r arsenal
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 arsenal_git_ready/
-├── app/                          # Main application
-│   ├── eyes_of_horus/           # Aegis risk management
-│   ├── helios_server.py         # Intelligence hub
-│   ├── live_arsenal_horus_integrated.py  # Trading bot
-│   ├── bybit_execution_engine.py  # Order execution
-│   └── run_*.sh                 # Launch scripts
-├── Trendline_Detectory/          # Advanced detection
-├── docs/                         # Documentation & screenshots
-├── config_tuning/                # Configuration files
-├── .env                          # API credentials (gitignored)
-├── .gitignore                    # Git ignore rules
-├── requirements.txt              # Python dependencies
-└── README.md                     # This file
+ app/                          # Main application
+    eyes_of_horus/           # Aegis risk management
+    helios_server.py         # Intelligence hub
+    live_arsenal_horus_integrated.py  # Trading bot
+    bybit_execution_engine.py  # Order execution
+    run_*.sh                 # Launch scripts
+ Trendline_Detectory/          # Advanced detection
+ docs/                         # Documentation & screenshots
+ config_tuning/                # Configuration files
+ .env                          # API credentials (gitignored)
+ .gitignore                    # Git ignore rules
+ requirements.txt              # Python dependencies
+ README.md                     # This file
 ```
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Trading Parameters
 
@@ -178,16 +178,16 @@ arsenal_git_ready/
 
 ---
 
-## 🔒 Security
+##  Security
 
-- ✅ `.env` file excluded from git
-- ✅ API keys never committed
-- ✅ IP whitelist recommended
-- ✅ API key rotation advised
+-  `.env` file excluded from git
+-  API keys never committed
+-  IP whitelist recommended
+-  API key rotation advised
 
 ---
 
-## 📊 Supported Symbols
+##  Supported Symbols
 
 | Symbol | Exchange | Type |
 |--------|----------|------|
@@ -200,12 +200,12 @@ arsenal_git_ready/
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Zero Balance Warning
 
 ```
-⚠️ Account balance is $0.00 - Bot will run in DEMO mode
+ Account balance is $0.00 - Bot will run in DEMO mode
 ```
 
 **Solution:** Deposit funds to your Bybit derivatives account.
@@ -236,21 +236,21 @@ pkill -f 'live_arsenal_horus_integrated'
 
 ---
 
-## 📝 License
+##  License
 
 This project is for educational and portfolio purposes.
 
-**⚠️ Disclaimer:** Trading cryptocurrencies involves substantial risk. Use at your own risk.
+** Disclaimer:** Trading cryptocurrencies involves substantial risk. Use at your own risk.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 This is a portfolio project. For questions or collaboration, contact the author.
 
 ---
 
-## 📧 Contact
+##  Contact
 
 - **GitHub:** [Your Profile]
 - **Email:** your.email@example.com

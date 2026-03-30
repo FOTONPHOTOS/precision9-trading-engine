@@ -117,7 +117,7 @@ class HorusDataCollector:
                 logger.info(f"Connecting to Unified Processor at {self.url}...")
 
                 async with session.ws_connect(self.url) as ws:
-                    logger.info("✓ Connected to Unified Processor!")
+                    logger.info(" Connected to Unified Processor!")
                     self.connected = True
 
                     # Send authentication
@@ -127,7 +127,7 @@ class HorusDataCollector:
                         "timestamp": time.time()
                     }
                     await ws.send_str(json.dumps(auth))
-                    logger.info("✓ Authenticated as hybrid_validator client")
+                    logger.info(" Authenticated as hybrid_validator client")
                     logger.info("="*80)
                     logger.info("Listening for data...")
 
@@ -394,11 +394,11 @@ class HorusDataCollector:
             with open(filepath, 'w') as f:
                 json.dump(data, f, indent=2)
 
-            logger.info(f"✓ Data exported to {filepath}")
+            logger.info(f" Data exported to {filepath}")
             return True
 
         except Exception as e:
-            logger.error(f"✗ Export failed: {e}")
+            logger.error(f" Export failed: {e}")
             return False
 
 

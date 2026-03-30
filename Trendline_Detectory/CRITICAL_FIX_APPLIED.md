@@ -14,9 +14,9 @@ It completely **IGNORED**:
 - Price position relative to structure (broken above resistance)
 - Confluence signals (240 bullish points)
 
-**Old buggy logic**: "trend is neutral → direction is NEUTRAL" ❌
+**Old buggy logic**: "trend is neutral → direction is NEUTRAL" 
 
-## Fix Applied ✅
+## Fix Applied 
 
 Implemented **Weighted Voting System** (lines 302-357):
 
@@ -71,7 +71,7 @@ else:
 - **Total Score: +0.70**
 
 **Result**:
-- Direction: **LONG** ✅ (was NEUTRAL ❌)
+- Direction: **LONG**  (was NEUTRAL )
 - Confidence: Higher (0.50 + 0.70 = ~80%)
 - Better RR: Precision calculator will find proper LONG setup
 
@@ -145,6 +145,6 @@ Risk/Reward: 2.31:1
 
 ---
 
-**Status**: ✅ READY TO TEST
+**Status**:  READY TO TEST
 
 The brain now properly weighs ALL market signals instead of relying solely on trend direction. This ensures excellent setups aren't missed due to neutral trend conditions.

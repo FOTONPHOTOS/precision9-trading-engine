@@ -144,7 +144,7 @@ Scenarios Matched:
 ### Win Rates
 - **59-62%**: Lower confidence scenarios
 - **65-69%**: Medium confidence scenarios
-- **71-73%**: High confidence scenarios ⭐
+- **71-73%**: High confidence scenarios 
 
 ---
 
@@ -342,13 +342,13 @@ if signal.confidence > 0.70:
   - 0.70-0.85: Increase size (max 2%)
 
 ### Signal Quality Checks
-✅ **Good Signal:**
+ **Good Signal:**
 - Confidence > 65%
 - Confluence > 50 points
 - 2+ scenarios matched
 - Risk/Reward > 1.5:1
 
-❌ **Skip Signal:**
+ **Skip Signal:**
 - Confidence < 50%
 - Confluence < 30 points
 - No scenarios matched
@@ -359,7 +359,7 @@ if signal.confidence > 0.70:
 ## What's Next?
 
 ### Immediate
-1. ✅ Test all modules (done)
+1.  Test all modules (done)
 2. ⏳ Deploy paper trading
 3. ⏳ Monitor performance
 4. ⏳ Collect statistics
@@ -399,10 +399,10 @@ python test_complete_arsenal.py
 ```
 
 **Expected output:**
-- All 7 modules operational ✅
-- Market analysis complete ✅
-- Trading signal generated ✅
-- Status: FULLY ARMED AND OPERATIONAL ✅
+- All 7 modules operational 
+- Market analysis complete 
+- Trading signal generated 
+- Status: FULLY ARMED AND OPERATIONAL 
 
 ---
 

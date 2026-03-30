@@ -47,11 +47,11 @@ for i, (utc_time_str, price) in enumerate(touch_points_utc, 1):
     print(f"{i:<4} {nigeria_str:<20} {utc_str:<20} ${price:<9.2f}")
 
 print("\n[HOW TO VERIFY]")
-print("✓ Each point should be at a swing HIGH (top of a candle wick)")
-print("✓ These should be MAJOR structural highs, not minor internal highs")
-print("✓ The line should form a clear descending channel")
-print("✓ Price should RESPECT the line (touch but not break)")
-print("✓ Look for ~5 distinct touches along the line")
+print(" Each point should be at a swing HIGH (top of a candle wick)")
+print(" These should be MAJOR structural highs, not minor internal highs")
+print(" The line should form a clear descending channel")
+print(" Price should RESPECT the line (touch but not break)")
+print(" Look for ~5 distinct touches along the line")
 
 print("\n[WHAT TO CHECK]")
 print("1. At 01:20 Nigeria time - Is there a swing high near $229.69?")

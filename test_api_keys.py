@@ -30,16 +30,16 @@ def test_bybit_api(api_key, api_secret, testnet=False):
         print("\n[1/4] Testing server time...")
         time_response = client.get_server_time()
         if time_response.get('retCode') == 0:
-            print(f"    ✅ Server time: {time_response.get('result', {}).get('timeSecond', 'N/A')}")
+            print(f"     Server time: {time_response.get('result', {}).get('timeSecond', 'N/A')}")
         else:
-            print(f"    ❌ Server time failed: {time_response.get('retMsg', 'Unknown error')}")
+            print(f"     Server time failed: {time_response.get('retMsg', 'Unknown error')}")
             return False
         
         # Test 2: Get wallet balance
         print("\n[2/4] Testing wallet balance...")
         balance_response = client.get_wallet_balance(accountType="UNIFIED")
         if balance_response.get('retCode') == 0:
-            print(f"    ✅ Balance query successful")
+            print(f"     Balance query successful")
             balances = balance_response.get('result', {}).get('list', [])
             if balances:
                 for balance_info in balances:
@@ -49,14 +49,14 @@ def test_bybit_api(api_key, api_secret, testnet=False):
                         if wallet_balance > 0:
                             print(f"       {coin.get('coin', 'N/A')}: ${wallet_balance:,.2f}")
         else:
-            print(f"    ❌ Balance query failed: {balance_response.get('retMsg', 'Unknown error')}")
+            print(f"     Balance query failed: {balance_response.get('retMsg', 'Unknown error')}")
             return False
         
         # Test 3: Get positions
         print("\n[3/4] Testing positions...")
         positions_response = client.get_positions(category="linear")
         if positions_response.get('retCode') == 0:
-            print(f"    ✅ Positions query successful")
+            print(f"     Positions query successful")
             positions = positions_response.get('result', {}).get('list', [])
             active_positions = [p for p in positions if float(p.get('size', 0)) != 0]
             if active_positions:
@@ -66,28 +66,28 @@ def test_bybit_api(api_key, api_secret, testnet=False):
             else:
                 print(f"       No active positions")
         else:
-            print(f"    ❌ Positions query failed: {positions_response.get('retMsg', 'Unknown error')}")
+            print(f"     Positions query failed: {positions_response.get('retMsg', 'Unknown error')}")
             return False
         
         # Test 4: Get account info
         print("\n[4/4] Testing account info...")
         account_response = client.get_account_info(accountType="CONTRACT")
         if account_response.get('retCode') == 0:
-            print(f"    ✅ Account info successful")
+            print(f"     Account info successful")
             account_info = account_response.get('result', {})
             print(f"       Account Type: {account_info.get('accountType', 'N/A')}")
             print(f"       Margin Mode: {account_info.get('marginMode', 'N/A')}")
         else:
-            print(f"    ❌ Account info failed: {account_response.get('retMsg', 'Unknown error')}")
+            print(f"     Account info failed: {account_response.get('retMsg', 'Unknown error')}")
             return False
         
         print(f"\n{'='*60}")
-        print(f"✅ BYBIT API KEY IS VALID AND FUNCTIONAL!")
+        print(f" BYBIT API KEY IS VALID AND FUNCTIONAL!")
         print(f"{'='*60}")
         return True
         
     except Exception as e:
-        print(f"\n❌ BYBIT API TEST FAILED: {str(e)}")
+        print(f"\n BYBIT API TEST FAILED: {str(e)}")
         return False
 
 
@@ -107,7 +107,7 @@ def test_binance_api(api_key, api_secret):
         print("\n[1/3] Testing account info...")
         try:
             account = client.get_account()
-            print(f"    ✅ Account query successful")
+            print(f"     Account query successful")
             print(f"       Maker Commission: {account.get('makerCommission', 0)}")
             print(f"       Taker Commission: {account.get('takerCommission', 0)}")
             
@@ -120,18 +120,18 @@ def test_binance_api(api_key, api_secret):
                 if free > 0 or locked > 0:
                     print(f"       {balance.get('asset', 'N/A')}: {free:.8f} (locked: {locked:.8f})")
         except BinanceAPIException as e:
-            print(f"    ❌ Account query failed: {e.message}")
+            print(f"     Account query failed: {e.message}")
             return False
         
         # Test 2: Get exchange info
         print("\n[2/3] Testing exchange info...")
         try:
             exchange_info = client.get_exchange_info()
-            print(f"    ✅ Exchange info successful")
+            print(f"     Exchange info successful")
             print(f"       Timezone: {exchange_info.get('timezone', 'N/A')}")
             print(f"       Server Time: {exchange_info.get('serverTime', 'N/A')}")
         except BinanceAPIException as e:
-            print(f"    ❌ Exchange info failed: {e.message}")
+            print(f"     Exchange info failed: {e.message}")
             return False
         
         # Test 3: Test order placement (without actually placing)
@@ -141,26 +141,26 @@ def test_binance_api(api_key, api_secret):
             symbol_info = client.get_symbol_info('BTCUSDT')
             if symbol_info:
                 permissions = symbol_info.get('permissions', [])
-                print(f"    ✅ Trading permissions: {permissions}")
+                print(f"     Trading permissions: {permissions}")
                 if 'MARGIN' in permissions:
                     print(f"       Margin trading: ENABLED")
                 if 'SPOT' in permissions:
                     print(f"       Spot trading: ENABLED")
         except BinanceAPIException as e:
-            print(f"    ❌ Trading permissions failed: {e.message}")
+            print(f"     Trading permissions failed: {e.message}")
             return False
         
         print(f"\n{'='*60}")
-        print(f"✅ BINANCE API KEY IS VALID AND FUNCTIONAL!")
+        print(f" BINANCE API KEY IS VALID AND FUNCTIONAL!")
         print(f"{'='*60}")
         return True
         
     except ImportError:
-        print(f"\n⚠️  Binance client not installed. Skipping Binance test.")
+        print(f"\n  Binance client not installed. Skipping Binance test.")
         print(f"    Install with: pip install python-binance")
         return None
     except Exception as e:
-        print(f"\n❌ BINANCE API TEST FAILED: {str(e)}")
+        print(f"\n BINANCE API TEST FAILED: {str(e)}")
         return False
 
 
@@ -212,7 +212,7 @@ def update_env_file(bybit_key, bybit_secret, binance_key=None, binance_secret=No
         f.write("# HELIOS_PORT=8009\n")
         f.write("# HELIOS_HOST=0.0.0.0\n")
     
-    print(f"    ✅ {env_path} updated successfully!")
+    print(f"     {env_path} updated successfully!")
     print(f"\n    Keys configured:")
     print(f"    - Bybit API Key: {bybit_key[:8]}...{bybit_key[-4:]}")
     print(f"    - Bybit Testnet: {testnet}")
@@ -228,7 +228,7 @@ def main():
     print("="*60)
     
     # Get API keys from user
-    print("\n📝 Enter your API credentials:")
+    print("\n Enter your API credentials:")
     print("(Keys will not be displayed as you type)\n")
     
     # Bybit keys
@@ -270,7 +270,7 @@ def main():
         )
         
         print(f"\n{'='*60}")
-        print(f"✅ SETUP COMPLETE!")
+        print(f" SETUP COMPLETE!")
         print(f"{'='*60}")
         print(f"\nYou can now launch your bots:")
         print(f"  cd /root/arsenal_git_ready")
@@ -281,7 +281,7 @@ def main():
         print(f"{'='*60}\n")
     else:
         print(f"\n{'='*60}")
-        print(f"❌ API KEY TEST FAILED")
+        print(f" API KEY TEST FAILED")
         print(f"{'='*60}")
         print(f"\nPlease check:")
         print(f"  1. API key is correct (no typos)")

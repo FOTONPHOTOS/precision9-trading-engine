@@ -19,7 +19,7 @@ Implemented comprehensive TP structure refactor and real-time risk management sy
 ```
 Entry: $205.82 (SHORT)
 Stop Loss: $209.27 ($3.45 risk)
-TP1: $205.09 ($0.73 profit) = 0.21:1 RR ❌ REJECTED
+TP1: $205.09 ($0.73 profit) = 0.21:1 RR  REJECTED
 TP2: $200.67 ($5.15 profit) = 1.49:1 RR
 TP3: $198.62 ($7.20 profit) = 2.09:1 RR
 
@@ -32,7 +32,7 @@ Trade REJECTED despite 95% confidence and VERY_STRONG signal!
 
 ## Solution Implemented
 
-### Part 1: TP Structure Refactor ✅
+### Part 1: TP Structure Refactor 
 
 **New Logic:**
 
@@ -46,26 +46,26 @@ Trade REJECTED despite 95% confidence and VERY_STRONG signal!
 
    ```
    IF zone found at/beyond 1:1 RR:
-       ├─> 2-TP MODE:
-       │   ├─> TP1: High-impact zone (50% position)
-       │   ├─> TP2: Extended target (50% position)
-       │   └─> Blended RR: (TP1_RR × 0.5) + (TP2_RR × 0.5)
-       │
+       > 2-TP MODE:
+          > TP1: High-impact zone (50% position)
+          > TP2: Extended target (50% position)
+          > Blended RR: (TP1_RR × 0.5) + (TP2_RR × 0.5)
+       
    ELSE IF confidence ≥ 75%:
-       ├─> 1-TP MODE (HEIGHTENED SECURITY):
-       │   ├─> TP: Final target (100% position)
-       │   ├─> Heightened security flag: TRUE
-       │   └─> Aggressive reversal detection: ACTIVE
-       │
+       > 1-TP MODE (HEIGHTENED SECURITY):
+          > TP: Final target (100% position)
+          > Heightened security flag: TRUE
+          > Aggressive reversal detection: ACTIVE
+       
    ELSE:
-       └─> SKIP TRADE (wait for better setup)
+       > SKIP TRADE (wait for better setup)
    ```
 
 3. **Example with User's Scenario:**
 
    **Before (Rejected):**
    - Entry: $205.82, SL: $209.27
-   - RR: 0.21:1 (TP1 only) ❌
+   - RR: 0.21:1 (TP1 only) 
 
    **After (Would Pass):**
    - Entry: $205.82, SL: $209.27, Risk: $3.45
@@ -73,12 +73,12 @@ Trade REJECTED despite 95% confidence and VERY_STRONG signal!
    - Scan finds liquidity pool at $201.50 → TP1!
    - TP1: $201.50 (50%) = 1.25:1 RR
    - TP2: $198.62 (50%) = 2.09:1 RR
-   - **Blended RR:** (1.25 × 0.5) + (2.09 × 0.5) = **1.67:1** ✅
+   - **Blended RR:** (1.25 × 0.5) + (2.09 × 0.5) = **1.67:1** 
    - **Passes 1.2:1 minimum!**
 
 ---
 
-### Part 2: Real-Time Risk Management ✅
+### Part 2: Real-Time Risk Management 
 
 **File Created:** `real_time_risk_manager.py`
 
@@ -99,8 +99,8 @@ Trade REJECTED despite 95% confidence and VERY_STRONG signal!
 **Example:**
 ```
 SHORT @ $205.82, most recent red closed at $204.50
-├─> 3m green candle closes at $205.00 (above $204.50)
-└─> TRIGGER: Close 50% + SL to breakeven ($205.82)
+> 3m green candle closes at $205.00 (above $204.50)
+> TRIGGER: Close 50% + SL to breakeven ($205.82)
 ```
 
 #### B. **Breakeven Stop Movement**
@@ -119,10 +119,10 @@ if progress >= 0.75:
 **Example:**
 ```
 LONG @ $200, TP1 @ $204, SL @ $198
-├─> Total distance: $4
-├─> 75% = $3 from entry = $203
-├─> Price reaches $203 + 3m green candle
-└─> Move SL to $200 (breakeven)
+> Total distance: $4
+> 75% = $3 from entry = $203
+> Price reaches $203 + 3m green candle
+> Move SL to $200 (breakeven)
 ```
 
 #### C. **Standard Reversal Detection**
@@ -137,10 +137,10 @@ LONG @ $200, TP1 @ $204, SL @ $198
 **Example:**
 ```
 SHORT @ $205.82
-├─> Price drops to $203 (in profit)
-├─> 3m green candle closes at $206.50 (above entry)
-├─> Volume: 50K (avg: 30K = 1.67× average) ✓
-└─> CLOSE ENTIRE POSITION at $206.50
+> Price drops to $203 (in profit)
+> 3m green candle closes at $206.50 (above entry)
+> Volume: 50K (avg: 30K = 1.67× average) 
+> CLOSE ENTIRE POSITION at $206.50
     Result: -$0.68 loss instead of -$3.45 stop hit
     Savings: $2.77 per unit!
 ```
@@ -159,22 +159,22 @@ SHORT @ $205.82
 SHORT @ $205.82, TP1 @ $201.50, TP2 @ $198.62
 
 Phase 1 (75% to TP1):
-├─> Current: $202.58
-├─> Lock 25% profit: $205.82 - ($3.45 × 0.25) = $205.00
-└─> New SL: $205.00
+> Current: $202.58
+> Lock 25% profit: $205.82 - ($3.45 × 0.25) = $205.00
+> New SL: $205.00
 
 Phase 2 (TP1 Hit):
-├─> 50% closed at $201.50
-└─> SL to breakeven: $205.82
+> 50% closed at $201.50
+> SL to breakeven: $205.82
 
 Phase 3 (50% to TP2):
-├─> Current: $200.00
-└─> Trail SL to TP1: $201.50
+> Current: $200.00
+> Trail SL to TP1: $201.50
 
 Phase 4 (80% to TP2):
-├─> Current: $199.00 (80% to $198.62)
-├─> ATR: $0.50, Trail: 1.5× = $0.75
-└─> SL: $199.00 + $0.75 = $199.75
+> Current: $199.00 (80% to $198.62)
+> ATR: $0.50, Trail: 1.5× = $0.75
+> SL: $199.00 + $0.75 = $199.75
 ```
 
 ---
@@ -307,14 +307,14 @@ asyncio.create_task(risk_manager.start_monitoring())
 Setup: Entry $200, SL $198, TP1 $201.50, TP2 $204
 
 Before:
-├─> RR = ($201.50 - $200) / ($200 - $198) = $1.50 / $2 = 0.75:1
-└─> REJECTED (< 1.2:1 minimum)
+> RR = ($201.50 - $200) / ($200 - $198) = $1.50 / $2 = 0.75:1
+> REJECTED (< 1.2:1 minimum)
 
 After:
-├─> TP1 RR: 0.75:1 (50% weight)
-├─> TP2 RR: 2.0:1 (50% weight)
-├─> Blended: (0.75 × 0.5) + (2.0 × 0.5) = 1.375:1
-└─> ACCEPTED (> 1.2:1 minimum) ✅
+> TP1 RR: 0.75:1 (50% weight)
+> TP2 RR: 2.0:1 (50% weight)
+> Blended: (0.75 × 0.5) + (2.0 × 0.5) = 1.375:1
+> ACCEPTED (> 1.2:1 minimum) 
 ```
 
 ### Risk Management Improvements
@@ -372,7 +372,7 @@ trailing_atr_multiplier = 1.5  # 1.5× ATR
 
 ## User's Requirements Summary
 
-✅ **Implemented:**
+ **Implemented:**
 1. 2-TP structure with 50/50 split (when zone found at 1:1 RR)
 2. Single TP with heightened security (no zone + high confidence)
 3. Breakeven movement (75% to TP1 + 3m confirmation)

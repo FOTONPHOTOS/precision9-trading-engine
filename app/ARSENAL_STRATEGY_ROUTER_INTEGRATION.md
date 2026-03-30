@@ -30,10 +30,10 @@ max_immediate_reversal_pct = 0.002  # If reverses >0.2% = fake
 **Purpose**: Generate signals during ranging markets (FIXED VERSION)
 
 **Key Fixes Applied**:
-- ✅ Lowered Z-score threshold from 2.0 → 1.2 (more sensitive)
-- ✅ Lowered VWAP deviation from 1.5% → 0.8% (catches smaller moves)
-- ✅ Changed conditions from AND → OR (either triggers signal)
-- ✅ Added diagnostic logging to debug signal generation
+-  Lowered Z-score threshold from 2.0 → 1.2 (more sensitive)
+-  Lowered VWAP deviation from 1.5% → 0.8% (catches smaller moves)
+-  Changed conditions from AND → OR (either triggers signal)
+-  Added diagnostic logging to debug signal generation
 
 **Why It Never Traded Before**:
 ```python
@@ -59,20 +59,20 @@ if z_score OR deviation:    # Either condition triggers
 **Strategy Flow**:
 ```
 1. Normal Market
-   ├─ Range Trap Detector analyzes structure
-   ├─ If trapped → Activate Mean Reversion
-   └─ If clear → Continue Directional
+    Range Trap Detector analyzes structure
+    If trapped → Activate Mean Reversion
+    If clear → Continue Directional
 
 2. Range Detected
-   ├─ Mean Reversion Engine activated
-   ├─ Block directional signals
-   ├─ Generate mean reversion signals
-   └─ Monitor for breakout
+    Mean Reversion Engine activated
+    Block directional signals
+    Generate mean reversion signals
+    Monitor for breakout
 
 3. Breakout Confirmed
-   ├─ Deactivate Mean Reversion
-   ├─ Enable Directional Trading
-   └─ Follow breakout direction
+    Deactivate Mean Reversion
+    Enable Directional Trading
+    Follow breakout direction
 ```
 
 **Cooldown System**:
@@ -98,7 +98,7 @@ class IntelligentStrategyBrain:
         # Initialize strategy router (NEW)
         self.strategy_router = ArsenalStrategyRouter(symbol="SOLUSDT")
 
-        logger.info("✅ Arsenal Strategy Router initialized")
+        logger.info(" Arsenal Strategy Router initialized")
         logger.info("   - Range detection active")
         logger.info("   - Mean reversion standby")
         logger.info("   - Breakout detection armed")
@@ -146,7 +146,7 @@ def analyze(self, market_intel: MarketIntelligence) -> IntelligentDecision:
         if strategy_decision.mean_reversion_signal:
             mr_signal = strategy_decision.mean_reversion_signal
 
-            reasoning_chain.append(f"\n  📊 MEAN REVERSION SIGNAL:")
+            reasoning_chain.append(f"\n   MEAN REVERSION SIGNAL:")
             reasoning_chain.append(f"     Direction: {mr_signal.direction}")
             reasoning_chain.append(f"     Entry: ${mr_signal.entry_price:.2f}")
             reasoning_chain.append(f"     TP: ${mr_signal.take_profit:.2f}")
@@ -176,12 +176,12 @@ def analyze(self, market_intel: MarketIntelligence) -> IntelligentDecision:
 
     elif strategy_decision.active_strategy == "STANDBY":
         # STANDBY MODE - Don't trade
-        reasoning_chain.append("  🚫 STANDBY MODE - Market conditions unclear")
+        reasoning_chain.append("   STANDBY MODE - Market conditions unclear")
         return self._create_no_trade_decision(strategy_decision.reason)
 
     elif strategy_decision.active_strategy == "DIRECTIONAL":
         # DIRECTIONAL MODE - Continue with normal Arsenal logic
-        reasoning_chain.append("  ✅ DIRECTIONAL MODE - Normal Arsenal analysis")
+        reasoning_chain.append("   DIRECTIONAL MODE - Normal Arsenal analysis")
 
         # ... continue with existing Arsenal signal generation ...
         # Your existing code for trendline breaks, patterns, etc.
@@ -195,7 +195,7 @@ After a breakout is confirmed, you may want to immediately look for directional 
 
 ```python
 if strategy_decision.is_breaking_out:
-    reasoning_chain.append(f"\n  🚀 BREAKOUT CONFIRMED")
+    reasoning_chain.append(f"\n   BREAKOUT CONFIRMED")
     reasoning_chain.append(f"     Boost directional confidence by +15%")
 
     # Increase confidence for directional trades following breakout
@@ -224,9 +224,9 @@ market_mean = engine.calculate_market_mean()
 if market_mean:
     signal = engine.generate_signal(205, market_mean, chop_confidence=0.6)
     if signal:
-        print(f"✅ Signal generated: {signal.direction} at ${signal.entry_price:.2f}")
+        print(f" Signal generated: {signal.direction} at ${signal.entry_price:.2f}")
     else:
-        print("⚠️ No signal (conditions not met)")
+        print(" No signal (conditions not met)")
 ```
 
 ### Integration Test
@@ -333,20 +333,20 @@ Track these via `strategy_router.get_status()`:
 ## Files Modified
 
 ### New Files (Created):
-- ✅ `range_breakout_detector.py` (338 lines)
-- ✅ `mean_reversion_engine.py` (442 lines, FIXED)
-- ✅ `arsenal_strategy_router.py` (469 lines)
+-  `range_breakout_detector.py` (338 lines)
+-  `mean_reversion_engine.py` (442 lines, FIXED)
+-  `arsenal_strategy_router.py` (469 lines)
 
 ### Files to Modify:
 - `intelligent_strategy_brain.py` (add routing logic)
 
 ### Files Copied to VPS:
-- ✅ All 3 modules copied to `Trendline_Arsenal_VPS/`
+-  All 3 modules copied to `Trendline_Arsenal_VPS/`
 
 ## Next Steps
 
-1. ✅ Create all modules
-2. ✅ Copy to VPS folder
+1.  Create all modules
+2.  Copy to VPS folder
 3. ⏳ Integrate into `intelligent_strategy_brain.py`
 4. ⏳ Test in simulation mode
 5. ⏳ Monitor for 24 hours
@@ -373,4 +373,4 @@ Track these via `strategy_router.get_status()`:
 1. Directional Trading (trends)
 2. Mean Reversion (ranges)
 
-This creates a true all-weather trading system. 🎯
+This creates a true all-weather trading system. 

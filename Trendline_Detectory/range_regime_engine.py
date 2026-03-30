@@ -420,12 +420,12 @@ class MeanReversionBrain:
         if rre_analysis.boundary_quality < min_boundary_quality:
             return MRBDecision(should_trade=False, reason=f"Boundary quality ({rre_analysis.boundary_quality:.2f}) < {min_boundary_quality}.")
         
-        logger.info(f"[MRB] ✓ Boundary quality is sufficient ({rre_analysis.boundary_quality:.2f}).")
+        logger.info(f"[MRB]  Boundary quality is sufficient ({rre_analysis.boundary_quality:.2f}).")
 
         if not horus_confirmation:
             return MRBDecision(should_trade=False, reason="Horus micro-structure confirmation failed.")
         
-        logger.info("[MRB] ✓ Horus confirmation received.")
+        logger.info("[MRB]  Horus confirmation received.")
 
         # --- Trade Calculation ---
         logger.info(f"[MRB] SUCCESS: All checks passed. Generating {side} trade plan.")

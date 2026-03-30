@@ -391,23 +391,23 @@ CHAIN OF THOUGHT REASONING
 ## What to Look For
 
 ### Good Setups Show:
-- ✅ Clear direction (not neutral)
-- ✅ High confidence (>60%)
-- ✅ Strong confluence (>150 points)
-- ✅ Minimal blockers/warnings
-- ✅ Good RR (>2:1)
-- ✅ No range trap
-- ✅ No stop hunt mode
+-  Clear direction (not neutral)
+-  High confidence (>60%)
+-  Strong confluence (>150 points)
+-  Minimal blockers/warnings
+-  Good RR (>2:1)
+-  No range trap
+-  No stop hunt mode
 
 ### Bad Setups Show:
-- ❌ Neutral direction
-- ❌ Low confidence (<40%)
-- ❌ Weak confluence (<100 points)
-- ❌ Multiple blockers
-- ❌ Many warnings
-- ❌ Poor RR (<1.5:1)
-- ❌ Range trap detected
-- ❌ Stop hunt mode active
+-  Neutral direction
+-  Low confidence (<40%)
+-  Weak confluence (<100 points)
+-  Multiple blockers
+-  Many warnings
+-  Poor RR (<1.5:1)
+-  Range trap detected
+-  Stop hunt mode active
 
 ---
 
@@ -417,7 +417,7 @@ CHAIN OF THOUGHT REASONING
 ```
 Confluence: 240 points (Bullish: 220, Bearish: 20)
 Recent Breaks: 6 bullish, 0 bearish
-Direction: NEUTRAL ❌
+Direction: NEUTRAL 
 ```
 
 **Problem:** Clearly bullish data producing neutral direction.
@@ -435,7 +435,7 @@ Direction: NEUTRAL ❌
 
 ## Status
 
-✅ **Enhanced output implemented**
+ **Enhanced output implemented**
 
 The system now provides comprehensive educational output showing:
 - Detailed module analysis

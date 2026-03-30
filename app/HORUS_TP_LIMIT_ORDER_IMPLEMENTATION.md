@@ -97,7 +97,7 @@ async def _place_tp_limit_orders_on_exchange(self, signal: TradingSignal, positi
         }
     """
     logger.info("="*80)
-    logger.info("📊 PLACING TP LIMIT ORDERS ON BYBIT")
+    logger.info(" PLACING TP LIMIT ORDERS ON BYBIT")
     logger.info("="*80)
     logger.info(f"")
     logger.info(f"Educational Note:")
@@ -146,12 +146,12 @@ async def _place_tp_limit_orders_on_exchange(self, signal: TradingSignal, positi
 
         if tp1_response and 'result' in tp1_response:
             tp1_order_id = tp1_response['result'].get('orderId', 'unknown')
-            logger.info(f"✅ TP1 Limit Order Placed: {tp1_order_id}")
+            logger.info(f" TP1 Limit Order Placed: {tp1_order_id}")
             logger.info(f"   Price: ${signal.take_profit_1:.2f}")
             logger.info(f"   Size: {tp1_qty:.1f} SOLUSDT (50%)")
             logger.info(f"   Status: Active on exchange, waiting for price to hit")
         else:
-            logger.error(f"❌ TP1 order placement failed: {tp1_response}")
+            logger.error(f" TP1 order placement failed: {tp1_response}")
             return {'success': False}
 
         # Place TP2 limit order
@@ -174,20 +174,20 @@ async def _place_tp_limit_orders_on_exchange(self, signal: TradingSignal, positi
 
         if tp2_response and 'result' in tp2_response:
             tp2_order_id = tp2_response['result'].get('orderId', 'unknown')
-            logger.info(f"✅ TP2 Limit Order Placed: {tp2_order_id}")
+            logger.info(f" TP2 Limit Order Placed: {tp2_order_id}")
             logger.info(f"   Price: ${signal.take_profit_2:.2f}")
             logger.info(f"   Size: {tp2_qty:.1f} SOLUSDT (50%)")
             logger.info(f"   Status: Active on exchange, waiting for price to hit")
         else:
-            logger.error(f"❌ TP2 order placement failed: {tp2_response}")
+            logger.error(f" TP2 order placement failed: {tp2_response}")
             # Cancel TP1 if TP2 fails
-            logger.warning(f"⚠️ Canceling TP1 order since TP2 failed...")
+            logger.warning(f" Canceling TP1 order since TP2 failed...")
             await self._cancel_order(tp1_order_id)
             return {'success': False}
 
         logger.info(f"")
         logger.info(f"="*80)
-        logger.info(f"✅ BOTH TP LIMIT ORDERS ACTIVE ON BYBIT")
+        logger.info(f" BOTH TP LIMIT ORDERS ACTIVE ON BYBIT")
         logger.info(f"="*80)
         logger.info(f"What happens next:")
         logger.info(f"  1. Orders are now visible on Bybit interface")
@@ -197,10 +197,10 @@ async def _place_tp_limit_orders_on_exchange(self, signal: TradingSignal, positi
         logger.info(f"  5. Position fully closed, trade complete")
         logger.info(f"")
         logger.info(f"Benefits:")
-        logger.info(f"  ✓ No bot required to be online for TPs to execute")
-        logger.info(f"  ✓ Better fill prices (limit orders, not market orders)")
-        logger.info(f"  ✓ Visible on exchange interface")
-        logger.info(f"  ✓ Can't double-trigger (exchange handles)")
+        logger.info(f"   No bot required to be online for TPs to execute")
+        logger.info(f"   Better fill prices (limit orders, not market orders)")
+        logger.info(f"   Visible on exchange interface")
+        logger.info(f"   Can't double-trigger (exchange handles)")
         logger.info(f"="*80)
 
         return {
@@ -210,7 +210,7 @@ async def _place_tp_limit_orders_on_exchange(self, signal: TradingSignal, positi
         }
 
     except Exception as e:
-        logger.error(f"❌ Failed to place TP limit orders: {e}")
+        logger.error(f" Failed to place TP limit orders: {e}")
         return {'success': False}
 
 
@@ -223,9 +223,9 @@ async def _cancel_order(self, order_id: str):
             "orderId": order_id
         }
         await self._make_request("POST", "/v5/order/cancel", params)
-        logger.info(f"✅ Order cancelled: {order_id}")
+        logger.info(f" Order cancelled: {order_id}")
     except Exception as e:
-        logger.error(f"❌ Failed to cancel order {order_id}: {e}")
+        logger.error(f" Failed to cancel order {order_id}: {e}")
 ```
 
 #### Change 3: Replace Internal TP Management with Exchange Orders
@@ -246,14 +246,14 @@ tp_result = await self._place_tp_limit_orders_on_exchange(
 )
 
 if not tp_result['success']:
-    logger.error("❌ Failed to place TP limit orders")
+    logger.error(" Failed to place TP limit orders")
     logger.warning("   Position opened but TPs not set - MANUAL MANAGEMENT REQUIRED")
 else:
     # Store TP order IDs for monitoring
     self._tp1_order_id = tp_result['tp1_order_id']
     self._tp2_order_id = tp_result['tp2_order_id']
     self._initial_position_size = float(formatted_qty)
-    logger.info(f"✅ TP limit orders tracked: TP1={self._tp1_order_id}, TP2={self._tp2_order_id}")
+    logger.info(f" TP limit orders tracked: TP1={self._tp1_order_id}, TP2={self._tp2_order_id}")
 ```
 
 #### Change 4: Add Position Size Monitoring to Detect TP Fills
@@ -289,7 +289,7 @@ async def _monitor_tp_fills_via_position_size(self):
             # TP1 Detection: Size reduced to ~50%
             if 'TP1' not in self.tp_levels_hit and 40 < size_remaining < 60:
                 logger.info("="*80)
-                logger.info("✅ TP1 LIMIT ORDER FILLED!")
+                logger.info(" TP1 LIMIT ORDER FILLED!")
                 logger.info("="*80)
                 logger.info(f"")
                 logger.info(f"Position Size Change Detected:")
@@ -320,7 +320,7 @@ async def _monitor_tp_fills_via_position_size(self):
             # TP2 Detection: Size reduced to ~0% (position closed)
             elif 'TP2' not in self.tp_levels_hit and size_remaining < 10:
                 logger.info("="*80)
-                logger.info("✅ TP2 LIMIT ORDER FILLED!")
+                logger.info(" TP2 LIMIT ORDER FILLED!")
                 logger.info("="*80)
                 logger.info(f"")
                 logger.info(f"Position Fully Closed:")
@@ -362,7 +362,7 @@ async def on_tp1_filled(self, current_position_size: float):
         return  # Already moved to breakeven
 
     logger.info("="*80)
-    logger.info("🛡️ BREAKEVEN TRIGGER - TP1 FILLED")
+    logger.info(" BREAKEVEN TRIGGER - TP1 FILLED")
     logger.info("="*80)
     logger.info(f"")
     logger.info(f"Educational Explanation:")
@@ -384,7 +384,7 @@ async def on_tp1_filled(self, current_position_size: float):
         trade.stop_loss = new_sl
         trade.breakeven_triggered = True
 
-        logger.info(f"✅ Stop Loss Moved to BREAKEVEN: ${new_sl:.2f}")
+        logger.info(f" Stop Loss Moved to BREAKEVEN: ${new_sl:.2f}")
         logger.info(f"   Previous SL: ${trade.stop_loss:.2f}")
         logger.info(f"   New SL: ${new_sl:.2f} (entry price)")
         logger.info(f"   Trade is now RISK-FREE!")
@@ -392,7 +392,7 @@ async def on_tp1_filled(self, current_position_size: float):
         logger.info(f"="*80)
 
     except Exception as e:
-        logger.error(f"❌ Failed to move SL to breakeven: {e}")
+        logger.error(f" Failed to move SL to breakeven: {e}")
 ```
 
 ---
@@ -401,24 +401,24 @@ async def on_tp1_filled(self, current_position_size: float):
 
 After implementing changes:
 
-1. **✅ TP Orders Visible on Bybit**
+1. ** TP Orders Visible on Bybit**
    - Open Bybit interface
    - Check "Open Orders" tab
    - Should see 2 reduceOnly limit orders at TP1 and TP2 prices
 
-2. **✅ TP1 Allocation is 50%**
+2. ** TP1 Allocation is 50%**
    - Check position size after TP1 hits
    - Should be exactly 50% of original
 
-3. **✅ TP2 Allocation is 50%**
+3. ** TP2 Allocation is 50%**
    - Check remaining position after TP1
    - TP2 should close remaining 50%
 
-4. **✅ Breakeven Triggers AFTER TP1**
+4. ** Breakeven Triggers AFTER TP1**
    - TP1 fills → Wait 2-5 seconds → SL moves to entry
    - NOT before TP1 fills
 
-5. **✅ Educational Logging**
+5. ** Educational Logging**
    - Logs explain what's happening
    - Logs explain why it's happening
    - Logs show current state and next actions
@@ -428,18 +428,18 @@ After implementing changes:
 ## Benefits of This Implementation
 
 ### Before (Current):
-- ❌ Bot manages TPs internally
-- ❌ 40%/30%/30% allocation (not what user wants)
-- ❌ TPs show as "All" on exchange
-- ❌ Bot must be online for TPs to execute
-- ❌ Breakeven triggers based on price proximity (can be too early)
+-  Bot manages TPs internally
+-  40%/30%/30% allocation (not what user wants)
+-  TPs show as "All" on exchange
+-  Bot must be online for TPs to execute
+-  Breakeven triggers based on price proximity (can be too early)
 
 ### After (Horus Approach):
-- ✅ Exchange manages TPs via limit orders
-- ✅ 50%/50% allocation (user's request)
-- ✅ TPs visible on exchange as actual orders
-- ✅ TPs execute even if bot offline
-- ✅ Breakeven triggers ONLY when TP1 actually fills
+-  Exchange manages TPs via limit orders
+-  50%/50% allocation (user's request)
+-  TPs visible on exchange as actual orders
+-  TPs execute even if bot offline
+-  Breakeven triggers ONLY when TP1 actually fills
 
 ---
 

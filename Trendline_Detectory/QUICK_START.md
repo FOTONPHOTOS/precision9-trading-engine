@@ -1,6 +1,6 @@
 # ARSENAL QUICK START GUIDE
 
-## 🚀 Run Tests (Choose One)
+##  Run Tests (Choose One)
 
 ### Option 1: Complete Arsenal Test
 ```bash
@@ -30,7 +30,7 @@ python test_liquidity_sweeps.py
 
 ---
 
-## 💻 Code Usage
+##  Code Usage
 
 ### Without Memory
 ```python
@@ -93,7 +93,7 @@ brain.close()
 
 ---
 
-## 📊 Key Outputs
+##  Key Outputs
 
 ### Decision Object
 ```python
@@ -126,7 +126,7 @@ decision.decision_timestamp  # DateTime
 
 ---
 
-## 🛡️ What Gets Blocked
+##  What Gets Blocked
 
 ### Critical Blockers (Confidence → 0%)
 1. **Range Trap >70%** - Market stuck in tight range
@@ -139,7 +139,7 @@ decision.decision_timestamp  # DateTime
 
 ---
 
-## 💾 Memory System
+##  Memory System
 
 ### Check Memory Stats
 ```python
@@ -172,7 +172,7 @@ print(context['context_summary'])  # Natural language summary
 
 ---
 
-## 🎯 Typical Workflow
+##  Typical Workflow
 
 ### 1. Initialize (Once)
 ```python
@@ -213,7 +213,7 @@ brain.close()
 
 ---
 
-## 🔍 Interpreting Results
+##  Interpreting Results
 
 ### Example: Blocked Decision
 ```
@@ -257,7 +257,7 @@ Opportunities:
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Adjust Thresholds (Optional)
 ```python
@@ -280,7 +280,7 @@ brain.excellent_confluence = 70   # Default: 70
 
 ---
 
-## 📁 Important Files
+##  Important Files
 
 ### You Need
 - `intelligent_strategy_brain_with_memory.py` - Brain
@@ -298,7 +298,7 @@ brain.excellent_confluence = 70   # Default: 70
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### "Module not found"
 ```bash
@@ -320,7 +320,7 @@ Already fixed - uses `[BLOCKED]` instead of emojis.
 
 ---
 
-## 📈 Best Practices
+##  Best Practices
 
 1. **Start Fresh**: Run tests first to understand output
 2. **Build Memory**: Let it run for days/weeks to build intelligence
@@ -332,7 +332,7 @@ Already fixed - uses `[BLOCKED]` instead of emojis.
 
 ---
 
-## 🎓 Learn More
+##  Learn More
 
 - Read `ARSENAL_COMPLETE_SUMMARY.md` for full system overview
 - Read `MEMORY_SYSTEM_GUIDE.md` for memory capabilities
@@ -341,7 +341,7 @@ Already fixed - uses `[BLOCKED]` instead of emojis.
 
 ---
 
-## ⚡ Quick Commands
+##  Quick Commands
 
 ```bash
 # Run complete test
@@ -360,20 +360,20 @@ python bos_choch_detector.py
 
 ---
 
-## 🎯 Remember
+##  Remember
 
 ### The Arsenal's Job
-- ✅ Detect danger
-- ✅ Block bad trades
-- ✅ Preserve capital
-- ✅ Learn from history
+-  Detect danger
+-  Block bad trades
+-  Preserve capital
+-  Learn from history
 
 ### Your Job
-- ✅ Trust the system
-- ✅ Don't override blocks
-- ✅ Let memory build
-- ✅ Review reasoning
+-  Trust the system
+-  Don't override blocks
+-  Let memory build
+-  Review reasoning
 
 ---
 
-**When in doubt, let the arsenal decide. It remembers what Horus forgot.** 🛡️
+**When in doubt, let the arsenal decide. It remembers what Horus forgot.** 

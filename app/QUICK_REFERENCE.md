@@ -1,6 +1,6 @@
 # Arsenal + Horus System - Quick Reference Card
 
-## 🚀 System Performance
+##  System Performance
 
 | Component | Speed | Purpose |
 |-----------|-------|---------|
@@ -11,7 +11,7 @@
 
 ---
 
-## 📁 Key Files
+##  Key Files
 
 ### Main Components
 ```
@@ -35,7 +35,7 @@ arsenal_candle_bridge.py (run directly)    - Standalone Arsenal test
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### With Arsenal (Recommended)
 ```python
@@ -71,13 +71,13 @@ risk_manager = RealTimeRiskManager(
 
 ---
 
-## 🎯 What To Watch in Logs
+##  What To Watch in Logs
 
-### ✅ GOOD SIGNS
+###  GOOD SIGNS
 
 **Position Tracking Working:**
 ```
-📊 Position updated: Buy 1.4 SOL | P&L: $2.50
+ Position updated: Buy 1.4 SOL | P&L: $2.50
 ```
 *Should update every 1 second*
 
@@ -95,7 +95,7 @@ Arsenal detected BULLISH BREAK on 3m (strength: 28.0%)
 
 **TP Limit Orders Placed:**
 ```
-✅ TP1 limit order placed successfully!
+ TP1 limit order placed successfully!
    Order ID: 1234567890
    Status: Active on Bybit exchange
 ```
@@ -103,9 +103,9 @@ Arsenal detected BULLISH BREAK on 3m (strength: 28.0%)
 
 **TP Fill Detected:**
 ```
-🎯 TP1 LIMIT ORDER FILLED DETECTED!
-📊 Position Size Change: 1.4 SOL → 0.7 SOL
-🛡️ MOVING STOP LOSS TO BREAKEVEN
+ TP1 LIMIT ORDER FILLED DETECTED!
+ Position Size Change: 1.4 SOL → 0.7 SOL
+ MOVING STOP LOSS TO BREAKEVEN
 ```
 *Within 1 second of TP hit*
 
@@ -117,11 +117,11 @@ Arsenal detected BULLISH BREAK on 3m (strength: 28.0%)
 ```
 *When reversal triggers*
 
-### ⚠️ WARNING SIGNS
+###  WARNING SIGNS
 
 **Stale P&L:**
 ```
-📊 Position updated: Buy 1.4 SOL | P&L: $0.00
+ Position updated: Buy 1.4 SOL | P&L: $0.00
 ```
 *Should never see $0.00 with active position - restart bot*
 
@@ -139,7 +139,7 @@ Real-Time Risk Manager started
 
 ---
 
-## 🔧 Common Tasks
+##  Common Tasks
 
 ### Check TP Limit Orders
 1. Open Bybit app
@@ -175,7 +175,7 @@ python test_arsenal_risk_integration.py
 
 ---
 
-## 📊 Performance Comparison
+##  Performance Comparison
 
 ### Your Trade Scenario
 
@@ -183,7 +183,7 @@ python test_arsenal_risk_integration.py
 - Entry: $183.91
 - Peak: $186.88 (near TP1)
 - Final: $183.19
-- **Result: -$25.87 LOSS** ❌
+- **Result: -$25.87 LOSS** 
 
 **NEW SYSTEM (Expected):**
 - Entry: $183.91
@@ -191,12 +191,12 @@ python test_arsenal_risk_integration.py
 - 50% closed: +$2.07 profit secured
 - SL moved to breakeven: $183.91
 - Remaining 50% protected
-- **Result: Minimum +$1.45 PROFIT** ✅
+- **Result: Minimum +$1.45 PROFIT** 
 - **Difference: $27.32 saved!**
 
 ---
 
-## 🛡️ Safety Features
+##  Safety Features
 
 ### Triple-Layer Protection
 
@@ -217,7 +217,7 @@ python test_arsenal_risk_integration.py
 
 ---
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
@@ -229,7 +229,7 @@ python test_arsenal_risk_integration.py
 
 ---
 
-## 📈 Expected Log Flow (Normal Operation)
+##  Expected Log Flow (Normal Operation)
 
 ```
 [STARTUP]
@@ -237,34 +237,34 @@ Real-Time Risk Manager started
 Arsenal Candle Bridge connected - Real-time pattern detection enabled
 
 [POSITION OPENED]
-✅ Order filled at $183.50
-📝 Placing TP Limit Orders on Exchange (Horus Method)
-✅ TP1 limit order placed successfully!
-✅ TP2 limit order placed successfully!
+ Order filled at $183.50
+ Placing TP Limit Orders on Exchange (Horus Method)
+ TP1 limit order placed successfully!
+ TP2 limit order placed successfully!
 
 [MONITORING - Every 1 second]
-📊 Position updated: Buy 1.4 SOL | P&L: $2.50
-📊 Position updated: Buy 1.4 SOL | P&L: $2.80
-📊 Position updated: Buy 1.4 SOL | P&L: $3.10
+ Position updated: Buy 1.4 SOL | P&L: $2.50
+ Position updated: Buy 1.4 SOL | P&L: $2.80
+ Position updated: Buy 1.4 SOL | P&L: $3.10
 
 [CANDLE CLOSE - Every 3-5 minutes]
 3m candle close at $184.20 - Cache updated from Arsenal
 Arsenal detected BULLISH BREAK on 3m (strength: 25.0%)
 
 [TP1 HIT]
-🎯 TP1 LIMIT ORDER FILLED DETECTED!
-📊 Position Size Change: 1.4 SOL → 0.7 SOL
-🛡️ MOVING STOP LOSS TO BREAKEVEN
-✅ TP1 FILL PROCESSED - Trade is now RISK-FREE
+ TP1 LIMIT ORDER FILLED DETECTED!
+ Position Size Change: 1.4 SOL → 0.7 SOL
+ MOVING STOP LOSS TO BREAKEVEN
+ TP1 FILL PROCESSED - Trade is now RISK-FREE
 
 [TP2 HIT]
-🎯 TP2 LIMIT ORDER FILLED DETECTED!
-✅ TRADE COMPLETE - ALL TPS FILLED
+ TP2 LIMIT ORDER FILLED DETECTED!
+ TRADE COMPLETE - ALL TPS FILLED
 ```
 
 ---
 
-## 💡 Pro Tips
+##  Pro Tips
 
 1. **Always verify TP orders** in Bybit app after position opens
 2. **Watch for Arsenal pattern logs** - they often catch reversals before volume spikes
@@ -274,26 +274,26 @@ Arsenal detected BULLISH BREAK on 3m (strength: 25.0%)
 
 ---
 
-## 📞 Quick Checks
+##  Quick Checks
 
 **Is Position Tracking Working?**
-→ P&L updates every 1 second ✅
+→ P&L updates every 1 second 
 
 **Is Arsenal Connected?**
-→ Startup log says "Arsenal Candle Bridge connected" ✅
+→ Startup log says "Arsenal Candle Bridge connected" 
 
 **Are TP Orders Placed?**
-→ Bybit app shows 2 conditional orders ✅
+→ Bybit app shows 2 conditional orders 
 
 **Is Risk Manager Fast?**
-→ Check logs every 3 seconds ✅
+→ Check logs every 3 seconds 
 
 **Is Pattern Detection Active?**
-→ See "Arsenal detected X BREAK" messages ✅
+→ See "Arsenal detected X BREAK" messages 
 
 ---
 
-## 🎯 Bottom Line
+##  Bottom Line
 
 **Old System:** 10-60 second delays → Profit turned to -$25 loss
 
@@ -301,7 +301,7 @@ Arsenal detected BULLISH BREAK on 3m (strength: 25.0%)
 
 **Your Scenario:** Would have saved $27-29 with new system
 
-**Status:** PRODUCTION READY ✅
+**Status:** PRODUCTION READY 
 
 ---
 

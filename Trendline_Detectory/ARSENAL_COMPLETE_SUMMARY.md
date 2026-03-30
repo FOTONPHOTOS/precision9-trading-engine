@@ -6,7 +6,7 @@ Built to prevent what killed Horus (50% capital loss in tight range traps with s
 
 ---
 
-## 🎯 Core Mission
+##  Core Mission
 
 **Protect capital by detecting market conditions that destroy retail traders**
 
@@ -14,46 +14,46 @@ The arsenal doesn't just generate signals - it **identifies danger** and **block
 
 ---
 
-## 📊 System Architecture
+##  System Architecture
 
 ```
 LAYER 1: DATA COLLECTION (11 Modules)
-├── Market Data Fetching
-├── Swing Structure Analysis
-├── Trend Identification
-├── Candle Pattern Detection
-├── Fair Value Gap (FVG) Detection
-├── Order Block Detection
-├── Liquidity Sweep Detection
-├── Liquidity Pool Mapping
-├── Stop Hunt Detection
-├── Range Trap Detection
-└── Confluence Scoring
+ Market Data Fetching
+ Swing Structure Analysis
+ Trend Identification
+ Candle Pattern Detection
+ Fair Value Gap (FVG) Detection
+ Order Block Detection
+ Liquidity Sweep Detection
+ Liquidity Pool Mapping
+ Stop Hunt Detection
+ Range Trap Detection
+ Confluence Scoring
 
 LAYER 2: INTELLIGENT REASONING
-├── Chain-of-Thought Analysis
-├── Multi-Factor Confluence
-├── Risk Assessment
-├── Blocker Identification
-├── Warning System
-├── Opportunity Detection
-├── Dynamic Confidence Scoring
-├── Position Sizing
-├── Entry/Exit Calculation
-└── Urgency Assessment
+ Chain-of-Thought Analysis
+ Multi-Factor Confluence
+ Risk Assessment
+ Blocker Identification
+ Warning System
+ Opportunity Detection
+ Dynamic Confidence Scoring
+ Position Sizing
+ Entry/Exit Calculation
+ Urgency Assessment
 
 LAYER 3: PERSISTENT MEMORY
-├── Event Recording
-├── Decision Tracking
-├── Regime Monitoring
-├── Pattern Learning
-├── Historical Context
-└── Outcome Analysis
+ Event Recording
+ Decision Tracking
+ Regime Monitoring
+ Pattern Learning
+ Historical Context
+ Outcome Analysis
 ```
 
 ---
 
-## 🛡️ Critical Safety Systems
+##  Critical Safety Systems
 
 ### 1. **Range Trap Detector**
 **Purpose**: Prevent the exact failure that killed Horus
@@ -122,7 +122,7 @@ Last opposing candle before impulse = Smart Money accumulation zone
 
 ---
 
-### 5. **Persistent Memory System** 🆕
+### 5. **Persistent Memory System** 
 **Purpose**: Learn from history and remember context
 
 **Capabilities**:
@@ -138,39 +138,39 @@ Last opposing candle before impulse = Smart Money accumulation zone
 
 ---
 
-## 🧠 How It Thinks
+##  How It Thinks
 
 ### Decision Hierarchy
 
 ```
 1. CRITICAL SAFETY CHECKS (Immediate Block)
-   └─→ Range Trap >70% → BLOCK
-   └─→ Stop Hunt Mode → BLOCK
+   → Range Trap >70% → BLOCK
+   → Stop Hunt Mode → BLOCK
 
 2. WARNING EVALUATION (Reduce Confidence)
-   └─→ High: -50% confidence
-   └─→ Medium: -25% confidence
-   └─→ Low: -10% confidence
+   → High: -50% confidence
+   → Medium: -25% confidence
+   → Low: -10% confidence
 
 3. OPPORTUNITY ASSESSMENT (Increase Confidence)
-   └─→ Strong trend: +20%
-   └─→ High-quality OB: +15%
-   └─→ Excellent confluence: +15%
-   └─→ Unfilled FVG: +10%
+   → Strong trend: +20%
+   → High-quality OB: +15%
+   → Excellent confluence: +15%
+   → Unfilled FVG: +10%
 
 4. MEMORY ENHANCEMENT (Historical Adjustment)
-   └─→ Recent stop hunts: -5%
-   └─→ Extended range trap: -10%
-   └─→ Similar past trap: -8%
+   → Recent stop hunts: -5%
+   → Extended range trap: -10%
+   → Similar past trap: -8%
 
 5. FINAL DECISION
-   └─→ Confidence ≥45% → Consider trading
-   └─→ Confidence <45% → Do not trade
+   → Confidence ≥45% → Consider trading
+   → Confidence <45% → Do not trade
 ```
 
 ---
 
-## 📈 Test Results
+##  Test Results
 
 ### Current Market Test (SOL/USDT)
 
@@ -196,7 +196,7 @@ Capital Saved: ~50%
 
 ---
 
-## 🔧 Modules Overview
+##  Modules Overview
 
 ### **Module 1: Market Data**
 - Binance API integration
@@ -249,7 +249,7 @@ Capital Saved: ~50%
 - Severity scoring
 - Mode identification
 
-### **Module 10: Range Trap Detection** ⭐ CRITICAL
+### **Module 10: Range Trap Detection**  CRITICAL
 - Range size calculation
 - Volatility compression
 - Conflicting signal counting
@@ -263,7 +263,7 @@ Capital Saved: ~50%
 
 ---
 
-## 💾 Memory System Features
+##  Memory System Features
 
 ### **Event Recording**
 Every significant event logged:
@@ -305,7 +305,7 @@ Can answer:
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Basic Test
 ```bash
@@ -328,14 +328,14 @@ python bos_choch_detector.py  # Standalone test
 
 ---
 
-## 📁 Complete File List
+##  Complete File List
 
 ### Core Modules (11)
 1. `realtime_swing_detector.py` - Market data & swings
 2. `fvg_detector.py` - Fair Value Gaps
 3. `order_block_detector.py` - Smart Money zones
 4. `liquidity_sweep_detector.py` - Stop hunts
-5. `range_trap_detector.py` - ⭐ Range trap protection
+5. `range_trap_detector.py` -  Range trap protection
 6. `bos_choch_detector.py` - Structure shifts
 7. `trendline_confluence_module.py` - Confluence scoring
 8. (Candle patterns in swing detector)
@@ -364,7 +364,7 @@ python bos_choch_detector.py  # Standalone test
 
 ---
 
-## 🎓 Key Innovations
+##  Key Innovations
 
 ### **1. Anti-Horus Protection**
 Specifically designed to prevent the exact failure mode that killed Horus:
@@ -402,7 +402,7 @@ Doesn't use obvious levels:
 
 ---
 
-## ⚡ Performance Characteristics
+##  Performance Characteristics
 
 ### Accuracy
 - Range trap detection: **88% severity** correctly identified
@@ -422,7 +422,7 @@ Doesn't use obvious levels:
 
 ---
 
-## 🔮 What Makes This Different
+##  What Makes This Different
 
 ### **Traditional Trading Bots**
 ```
@@ -445,7 +445,7 @@ Doesn't use obvious levels:
 
 ---
 
-## 💡 Philosophy
+##  Philosophy
 
 ### **Defense First**
 The #1 goal is **NOT losing money**, not making money.
@@ -464,7 +464,7 @@ Understand "why" the market moves, not just "what" it's doing.
 
 ---
 
-## 🎯 Success Metrics
+##  Success Metrics
 
 ### **Primary Metric**: Capital Preservation
 - Horus lost 50% in range traps
@@ -479,9 +479,9 @@ Understand "why" the market moves, not just "what" it's doing.
 
 ---
 
-## 🚦 Current Status
+##  Current Status
 
-### ✅ Complete & Tested
+###  Complete & Tested
 - All 11 analysis modules
 - Intelligent strategy brain
 - Range trap detection
@@ -491,7 +491,7 @@ Understand "why" the market moves, not just "what" it's doing.
 - Historical context
 - Learning capability
 
-### 🔄 Continuous Improvement
+###  Continuous Improvement
 - Pattern outcome tracking
 - Success rate analysis
 - Memory-enhanced decisions
@@ -499,7 +499,7 @@ Understand "why" the market moves, not just "what" it's doing.
 
 ---
 
-## 📊 Example Output
+##  Example Output
 
 ```
 ================================================================================
@@ -532,24 +532,24 @@ ULTIMATE ARSENAL - DECISION
 
 ---
 
-## 🎖️ Built to Survive
+##  Built to Survive
 
 This arsenal was specifically designed to survive the conditions that kill most trading systems:
 
-✅ Tight ranges that trap systems for hours
-✅ Stop hunt patterns that sweep retail stops
-✅ Conflicting signals that cause whipsaw losses
-✅ Volatile compression before major moves
-✅ Market maker manipulation
-✅ Low liquidity traps
+ Tight ranges that trap systems for hours
+ Stop hunt patterns that sweep retail stops
+ Conflicting signals that cause whipsaw losses
+ Volatile compression before major moves
+ Market maker manipulation
+ Low liquidity traps
 
 **Your capital is protected by 11 layers of analysis, intelligent reasoning, and institutional memory.**
 
 ---
 
-## 🔗 Integration Path
+##  Integration Path
 
-### Phase 1: Standalone Testing ✅
+### Phase 1: Standalone Testing 
 Current phase - test modules independently
 
 ### Phase 2: Live Data Integration
@@ -566,7 +566,7 @@ Build historical database of pattern outcomes
 
 ---
 
-## 📝 Final Notes
+##  Final Notes
 
 **This is not just a trading bot.**
 
@@ -579,7 +579,7 @@ It doesn't chase signals - it **identifies danger** and **blocks trades** when c
 
 ---
 
-## 🎬 Next Steps
+##  Next Steps
 
 1. **Run the tests** - See it in action
 2. **Let it build memory** - Run for days/weeks
@@ -595,4 +595,4 @@ It doesn't chase signals - it **identifies danger** and **blocks trades** when c
 *Protected by 11 layers of analysis and historical context.*
 *Designed to survive the conditions that destroy retail traders.*
 
-**Your capital's best defense. 🛡️**
+**Your capital's best defense. **

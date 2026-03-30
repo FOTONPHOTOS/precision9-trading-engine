@@ -77,19 +77,19 @@ chmod +x /etc/cron.hourly/ssh_block
 # Create a script to check current firewall status
 cat > /root/Desktop/Arsenal\ VPS/check_security.sh << 'CHECK_EOF'
 #!/bin/bash
-echo "🛡️  Current Security Status:"
+echo "  Current Security Status:"
 echo ""
-echo "📋 Active IP Tables Rules:"
+echo " Active IP Tables Rules:"
 iptables -L -n -v --line-numbers
 echo ""
-echo "🌐 Blocked IPs:"
+echo " Blocked IPs:"
 iptables -L INPUT -n -v | grep DROP | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}'
 echo ""
-echo "📊 Active Network Connections:"
+echo " Active Network Connections:"
 netstat -an | head -20
 echo "..."
 echo ""
-echo "🔒 Security measures active:"
+echo " Security measures active:"
 echo "  - DDoS Protection: ON"
 echo "  - Port Scan Detection: ON" 
 echo "  - SSH Brute Force Protection: ON"
@@ -111,7 +111,7 @@ UPDATE_EOF
 chmod +x /etc/cron.weekly/security_updates
 
 log_event "Security monitoring and auto-blocking system installed"
-echo "🛡️  VPS Security System Installed!"
+echo "  VPS Security System Installed!"
 echo "   - Auto-blocking for suspicious IPs every 5 minutes"
 echo "   - SSH brute force protection hourly"
 echo "   - Weekly security updates"

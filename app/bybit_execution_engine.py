@@ -269,7 +269,7 @@ class BybitExecutionEngine:
             
             # Allow zero balance for testing/demo mode
             if self.account_balance == 0:
-                logger.warning("⚠️  Account balance is $0.00 - Bot will run in DEMO mode (no live trades)")
+                logger.warning("  Account balance is $0.00 - Bot will run in DEMO mode (no live trades)")
                 logger.warning("Deposit funds to enable live trading")
             
             # Set leverage

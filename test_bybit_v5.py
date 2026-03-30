@@ -48,15 +48,15 @@ def test_v5_api(testnet=False):
             data = response.json()
             if data.get('retCode') == 0:
                 server_time = data.get('result', {}).get('timeSecond', 'N/A')
-                print(f"    ✅ Server time: {server_time}")
+                print(f"     Server time: {server_time}")
             else:
-                print(f"    ❌ Failed: {data.get('retMsg', 'Unknown')}")
+                print(f"     Failed: {data.get('retMsg', 'Unknown')}")
                 return False
         else:
-            print(f"    ❌ HTTP Error: {response.status_code}")
+            print(f"     HTTP Error: {response.status_code}")
             return False
     except Exception as e:
-        print(f"    ❌ Error: {e}")
+        print(f"     Error: {e}")
         return False
     
     # Get wallet balance with V5 signature
@@ -99,7 +99,7 @@ def test_v5_api(testnet=False):
             print(f"    Response retMsg: {ret_msg}")
             
             if ret_code == 0:
-                print(f"    ✅ Balance query successful!")
+                print(f"     Balance query successful!")
                 balances = data.get('result', {}).get('list', [])
                 if balances:
                     for balance_info in balances:
@@ -107,19 +107,19 @@ def test_v5_api(testnet=False):
                         for coin in coins:
                             wallet_balance = float(coin.get('walletBalance', 0))
                             if wallet_balance > 0:
-                                print(f"       💰 {coin.get('coin')}: ${wallet_balance:,.2f}")
+                                print(f"        {coin.get('coin')}: ${wallet_balance:,.2f}")
                 return True
             elif ret_code == 10003:
-                print(f"    ❌ API Key invalid or expired")
+                print(f"     API Key invalid or expired")
                 return False
             elif ret_code == 10004:
-                print(f"    ❌ Signature error - check API secret")
+                print(f"     Signature error - check API secret")
                 return False
             elif ret_code == 401:
-                print(f"    ❌ Authentication failed")
+                print(f"     Authentication failed")
                 return False
         else:
-            print(f"    ❌ HTTP Error: {response.status_code}")
+            print(f"     HTTP Error: {response.status_code}")
             try:
                 error_data = response.json()
                 print(f"    Error response: {error_data}")
@@ -128,7 +128,7 @@ def test_v5_api(testnet=False):
             return False
             
     except Exception as e:
-        print(f"    ❌ Exception: {e}")
+        print(f"     Exception: {e}")
         import traceback
         traceback.print_exc()
         return False
@@ -152,7 +152,7 @@ def update_env(testnet=False):
         f.write("# BINANCE_API_KEY=\n")
         f.write("# BINANCE_API_SECRET=\n")
     
-    print(f"    ✅ .env updated!")
+    print(f"     .env updated!")
     print(f"    Key: {API_KEY[:8]}...{API_KEY[-4:]}")
     print(f"    Mode: {'TESTNET' if testnet else 'LIVE'}\n")
 
@@ -171,4 +171,4 @@ if not mainnet_ok:
         update_env(testnet=True)
 else:
     update_env(testnet=False)
-    print("\n✅ Keys are valid! Check .env file.")
+    print("\n Keys are valid! Check .env file.")

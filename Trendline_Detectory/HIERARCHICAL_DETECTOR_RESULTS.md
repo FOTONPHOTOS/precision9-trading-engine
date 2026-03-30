@@ -7,19 +7,19 @@ Successfully implemented a **hierarchical, multi-timeframe trendline detection s
 ### Key Architectural Changes
 
 **OLD APPROACH (FLAWED):**
-- ❌ Mathematical best-fit (Hough Transform)
-- ❌ Detected 100+ minor swings on 1M directly
-- ❌ Found 13 touches on random wicks
-- ❌ No HTF context consideration
-- ❌ Result: Structurally meaningless lines
+-  Mathematical best-fit (Hough Transform)
+-  Detected 100+ minor swings on 1M directly
+-  Found 13 touches on random wicks
+-  No HTF context consideration
+-  Result: Structurally meaningless lines
 
 **NEW APPROACH (CORRECT):**
-- ✅ Hierarchical top-down (15M → 1M)
-- ✅ Detects 20 HTF swing points, 11 HTF ranges
-- ✅ 69 LTF swings within HTF downtrend ranges
-- ✅ Collinearity detection using cross-multiplication
-- ✅ RANSAC for robustness against false breakouts
-- ✅ Result: Structurally significant lines
+-  Hierarchical top-down (15M → 1M)
+-  Detects 20 HTF swing points, 11 HTF ranges
+-  69 LTF swings within HTF downtrend ranges
+-  Collinearity detection using cross-multiplication
+-  RANSAC for robustness against false breakouts
+-  Result: Structurally significant lines
 
 ---
 
@@ -185,19 +185,19 @@ The detector identified these major trend ranges:
    - **Expected**: Should connect 5 major swing highs forming descending resistance
 
 ### What to Verify:
-✅ Does the line connect actual swing HIGH points (wick tops)?
-✅ Are these the major structural highs (not minor internal highs)?
-✅ Do the touch points respect the line (touch but don't break)?
-✅ Does the line form a clear descending channel?
-✅ Are there ~5 major touches along this line?
+ Does the line connect actual swing HIGH points (wick tops)?
+ Are these the major structural highs (not minor internal highs)?
+ Do the touch points respect the line (touch but don't break)?
+ Does the line form a clear descending channel?
+ Are there ~5 major touches along this line?
 
 ### What We Fixed:
-- ❌ **OLD**: Connected 13 random minor wicks
-- ✅ **NEW**: Connects 5 MAJOR structural swing highs
-- ❌ **OLD**: No HTF context
-- ✅ **NEW**: Identified within HTF downtrend range (Range 10)
-- ❌ **OLD**: Poor fit (many deviations)
-- ✅ **NEW**: Near-perfect fit (R²=0.9998, avg deviation $0.037)
+-  **OLD**: Connected 13 random minor wicks
+-  **NEW**: Connects 5 MAJOR structural swing highs
+-  **OLD**: No HTF context
+-  **NEW**: Identified within HTF downtrend range (Range 10)
+-  **OLD**: Poor fit (many deviations)
+-  **NEW**: Near-perfect fit (R²=0.9998, avg deviation $0.037)
 
 ---
 

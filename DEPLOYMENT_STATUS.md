@@ -1,6 +1,6 @@
 # Arsenal VPS Trading System - Deployment Status
 
-## ✅ Current Status (DEPLOYED & RUNNING)
+##  Current Status (DEPLOYED & RUNNING)
 
 **Server:** vmi2924130  
 **Date:** March 27, 2026  
@@ -12,8 +12,8 @@
 
 | Component | Status | Port | PID |
 |-----------|--------|------|-----|
-| Eyes of Horus (Aegis) | ✅ Running | 8765 (WebSocket) | Active |
-| Helios Server | ✅ Running | 8009 | 129016 |
+| Eyes of Horus (Aegis) |  Running | 8765 (WebSocket) | Active |
+| Helios Server |  Running | 8009 | 129016 |
 
 ---
 
@@ -103,24 +103,24 @@ BYBIT_TESTNET=false
 
 ## Verified Working Features
 
-✅ Virtual environment creation  
-✅ Dependency installation  
-✅ Launch scripts (relative paths)  
-✅ PYTHONPATH configuration  
-✅ SmartMoneyConcepts integration  
-✅ Helios Server startup  
-✅ Eyes of Horus (Aegis) startup  
-✅ WebSocket communication  
-✅ Database initialization  
-✅ Logging system  
+ Virtual environment creation  
+ Dependency installation  
+ Launch scripts (relative paths)  
+ PYTHONPATH configuration  
+ SmartMoneyConcepts integration  
+ Helios Server startup  
+ Eyes of Horus (Aegis) startup  
+ WebSocket communication  
+ Database initialization  
+ Logging system  
 
 ---
 
 ## Known Limitations
 
-⚠️ **API Keys Required** - System needs valid Bybit/Binance API keys  
-⚠️ **Balance Check** - Aegis requires funded account for live trading  
-⚠️ **Port Conflicts** - Ensure ports 8009, 8765 are available  
+ **API Keys Required** - System needs valid Bybit/Binance API keys  
+ **Balance Check** - Aegis requires funded account for live trading  
+ **Port Conflicts** - Ensure ports 8009, 8765 are available  
 
 ---
 
@@ -182,4 +182,4 @@ This repository is **production-ready** and includes:
 
 ---
 
-**System Status:** ✅ READY FOR DEPLOYMENT
+**System Status:**  READY FOR DEPLOYMENT

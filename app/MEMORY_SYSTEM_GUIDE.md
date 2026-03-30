@@ -56,52 +56,52 @@ Can track pattern outcomes:
 
 ```
 market_events
-├── timestamp
-├── event_type (sweep, trap, breakout, reversal, etc.)
-├── severity (0-1)
-├── price_level
-├── direction (bullish, bearish, neutral)
-└── context_json (additional details)
+ timestamp
+ event_type (sweep, trap, breakout, reversal, etc.)
+ severity (0-1)
+ price_level
+ direction (bullish, bearish, neutral)
+ context_json (additional details)
 
 trading_decisions
-├── timestamp
-├── decision_id (unique)
-├── direction
-├── confidence
-├── signal_strength
-├── should_trade (boolean)
-├── blockers_json
-├── warnings_json
-├── reasoning (first 10 steps)
-├── price_at_decision
-├── outcome (filled later)
-└── price_change_24h (filled later)
+ timestamp
+ decision_id (unique)
+ direction
+ confidence
+ signal_strength
+ should_trade (boolean)
+ blockers_json
+ warnings_json
+ reasoning (first 10 steps)
+ price_at_decision
+ outcome (filled later)
+ price_change_24h (filled later)
 
 range_periods
-├── start_time
-├── end_time
-├── range_high
-├── range_low
-├── range_size_pct
-├── trap_severity
-├── sweep_count
-└── resolution (breakout_up, breakout_down, dissolved)
+ start_time
+ end_time
+ range_high
+ range_low
+ range_size_pct
+ trap_severity
+ sweep_count
+ resolution (breakout_up, breakout_down, dissolved)
 
 market_regimes
-├── start_time
-├── end_time
-├── regime_type
-├── confidence
-└── characteristics_json
+ start_time
+ end_time
+ regime_type
+ confidence
+ characteristics_json
 
 pattern_outcomes (for learning)
-├── timestamp
-├── pattern_type
-├── direction
-├── price_at_pattern
-├── outcome (success, failure)
-├── price_move_pct
-└── time_to_resolution_hours
+ timestamp
+ pattern_type
+ direction
+ price_at_pattern
+ outcome (success, failure)
+ price_move_pct
+ time_to_resolution_hours
 ```
 
 ### Automatic Recording Flow
@@ -114,11 +114,11 @@ pattern_outcomes (for learning)
 3. Brain makes decision
    ↓
 4. MEMORY LAYER ACTIVATES:
-   ├─→ Record decision to database
-   ├─→ Record any liquidity sweeps
-   ├─→ Track range trap if active
-   ├─→ Update current regime
-   └─→ Check for regime changes
+   → Record decision to database
+   → Record any liquidity sweeps
+   → Track range trap if active
+   → Update current regime
+   → Check for regime changes
    ↓
 5. Decision enhanced with history
    ↓
@@ -397,12 +397,12 @@ Result: Capital preserved
 
 The Memory System transforms your arsenal from a **reactive** system into a **learning** system. It:
 
-✅ Remembers everything across restarts
-✅ Learns from historical patterns
-✅ Provides context for "what" and "why"
-✅ Enhances decision quality with experience
-✅ Tracks long-term market regimes
-✅ Prevents repeated mistakes
-✅ **Gets smarter over time**
+ Remembers everything across restarts
+ Learns from historical patterns
+ Provides context for "what" and "why"
+ Enhances decision quality with experience
+ Tracks long-term market regimes
+ Prevents repeated mistakes
+ **Gets smarter over time**
 
 Your arsenal now has **persistent intelligence** and **institutional memory**.

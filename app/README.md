@@ -8,19 +8,19 @@ This system detects trendlines, swing points, and early break signals to help ca
 
 ## Core Components
 
-### 1. **realtime_swing_detector.py** ⭐ (PRIMARY DETECTOR)
+### 1. **realtime_swing_detector.py**  (PRIMARY DETECTOR)
 
 **Purpose**: Find the MOST RECENT swing high/low, not ones from hours ago
 
 **Key Features**:
-- ✅ **Time-Windowed Analysis**: Only looks 1-4 hours back (not all historical data)
-- ✅ **Candle Close Pattern Detection**: NEW - Detects early break signals
+-  **Time-Windowed Analysis**: Only looks 1-4 hours back (not all historical data)
+-  **Candle Close Pattern Detection**: NEW - Detects early break signals
   - Bullish Break: Candle closes ABOVE previous bearish candle's high
   - Bearish Break: Candle closes BELOW previous bullish candle's low
   - These patterns serve as "second validation" for trend breaks
-- ✅ **Break Validation**: Detects when resistance/support is broken by candle close
-- ✅ **Lower High/Higher Low Analysis**: Confirms trend continuation/reversal
-- ✅ **Trading Implications**: Shows actionable trading setups
+-  **Break Validation**: Detects when resistance/support is broken by candle close
+-  **Lower High/Higher Low Analysis**: Confirms trend continuation/reversal
+-  **Trading Implications**: Shows actionable trading setups
 
 **Usage**:
 ```python

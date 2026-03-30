@@ -1,7 +1,7 @@
 #!/bin/bash
 # Restart script for Eyes of Horus (Aegis) with all fixes applied
 
-echo "🔄 Stopping current Aegis processes..."
+echo " Stopping current Aegis processes..."
 
 # Kill all existing Aegis/Eyes of Horus processes
 pkill -f "eyes_of_horus" 2>/dev/null
@@ -12,7 +12,7 @@ sleep 3
 
 # Clear database of any stale active records
 cd /root/Desktop/Arsenal\ VPS/app
-echo "🧹 Clearing stale active trade records from database..."
+echo " Clearing stale active trade records from database..."
 /root/Desktop/Arsenal\ VPS/venv/bin/python -c "
 import sqlite3
 conn = sqlite3.connect('eyes_of_horus.db')
@@ -26,11 +26,11 @@ conn.close()
 "
 
 # Clear state file
-echo "🧹 Clearing persistent Aegis state..."
+echo " Clearing persistent Aegis state..."
 echo '{}' > aegis_state.json
 
 # Start Eyes of Horus in background with all fixes active
-echo "🚀 Starting Aegis (Eyes of Horus) with fixes:"
+echo " Starting Aegis (Eyes of Horus) with fixes:"
 echo "   - Max concurrent symbols increased to 10 (was 3)"
 echo "   - Stop losses fixed at 0.3% to prevent tight triggering"
 echo "   - Position sync with Bybit to maintain accurate memory"
@@ -51,7 +51,7 @@ from eyes_of_horus.main import main as eyes_main
 asyncio.run(eyes_main())
 " > aegis_restarted.log 2>&1 &
 
-echo "✅ Aegis restarted with all fixes active!"
+echo " Aegis restarted with all fixes active!"
 echo ""
 echo "To monitor logs: tail -f /root/Desktop/Arsenal VPS/app/aegis_restarted.log"
 echo "To check status: ps aux | grep eyes_of_horus"

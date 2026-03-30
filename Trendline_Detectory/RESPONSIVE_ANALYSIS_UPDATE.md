@@ -150,10 +150,10 @@ self.analysis_interval = 15  # Change to your preferred interval
 ### Entry Quality
 
 Faster detection = Better entries:
-- ✅ Less slippage
-- ✅ Better risk/reward
-- ✅ Closer to ideal entry zone
-- ✅ More profitable trades
+-  Less slippage
+-  Better risk/reward
+-  Closer to ideal entry zone
+-  More profitable trades
 
 ---
 
@@ -266,6 +266,6 @@ Possible enhancements:
 
 ---
 
-**Status:** ✅ IMPLEMENTED
+**Status:**  IMPLEMENTED
 
 The system is now significantly more responsive while being more efficient. It detects new setups within 15 seconds instead of up to 60 seconds, giving you better entry opportunities.

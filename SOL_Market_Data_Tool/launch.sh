@@ -65,7 +65,7 @@ start_collector() {
     sleep 3
     
     if is_running; then
-        echo -e "${GREEN}✓ Collector started successfully (PID: $PID)${NC}"
+        echo -e "${GREEN} Collector started successfully (PID: $PID)${NC}"
         echo ""
         echo "Commands:"
         echo "  Monitor logs:  tail -f $LOG_FILE"
@@ -73,7 +73,7 @@ start_collector() {
         echo "  Stop:          ./launch.sh stop"
         return 0
     else
-        echo -e "${RED}✗ Failed to start collector${NC}"
+        echo -e "${RED} Failed to start collector${NC}"
         rm -f "$PID_FILE"
         echo "Check log file: $LOG_FILE"
         return 1
@@ -108,7 +108,7 @@ stop_collector() {
     fi
     
     rm -f "$PID_FILE"
-    echo -e "${GREEN}✓ Collector stopped${NC}"
+    echo -e "${GREEN} Collector stopped${NC}"
 }
 
 # Function to check status
@@ -208,9 +208,9 @@ backup_data() {
     
     if [ $? -eq 0 ]; then
         SIZE=$(du -h "$BACKUP_NAME" | cut -f1)
-        echo -e "${GREEN}✓ Backup created: $BACKUP_NAME ($SIZE)${NC}"
+        echo -e "${GREEN} Backup created: $BACKUP_NAME ($SIZE)${NC}"
     else
-        echo -e "${RED}✗ Backup failed${NC}"
+        echo -e "${RED} Backup failed${NC}"
     fi
 }
 
@@ -223,7 +223,7 @@ clean_logs() {
         LOG_COUNT=$(ls -1 "$LOG_DIR"/collector_*.log 2>/dev/null | wc -l)
         if [ "$LOG_COUNT" -gt 10 ]; then
             ls -t "$LOG_DIR"/collector_*.log | tail -n +11 | xargs rm -f
-            echo -e "${GREEN}✓ Removed $((LOG_COUNT - 10)) old log files${NC}"
+            echo -e "${GREEN} Removed $((LOG_COUNT - 10)) old log files${NC}"
         else
             echo "No old logs to clean"
         fi

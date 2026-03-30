@@ -8,67 +8,67 @@
 ## ARCHITECTURE OVERVIEW
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    ARSENAL HORUS INTEGRATION                     │
-│                     (Hybrid Architecture)                        │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────┐    │
-│  │  INITIALIZATION PHASE (Once at startup)                 │    │
-│  ├────────────────────────────────────────────────────────┤    │
-│  │                                                          │    │
-│  │  Binance REST API                                       │    │
-│  │  ↓                                                       │    │
-│  │  Fetch Last 500 Candles (1m, 5m, 15m)                  │    │
-│  │  ↓                                                       │    │
-│  │  Calculate Historical CVD Baseline                      │    │
-│  │  - Average CVD over 24h                                 │    │
-│  │  - CVD volatility/standard deviation                    │    │
-│  │  - Buy/Sell ratio trends                                │    │
-│  │  ↓                                                       │    │
-│  │  Calculate Historical Exhaustion Baseline               │    │
-│  │  - RSI distribution (5m, 15m, 1h)                       │    │
-│  │  - Recent exhaustion events                             │    │
-│  │  - Typical reversal patterns                            │    │
-│  │                                                          │    │
-│  └────────────────────────────────────────────────────────┘    │
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────┐    │
-│  │  REAL-TIME PHASE (Continuous)                           │    │
-│  ├────────────────────────────────────────────────────────┤    │
-│  │                                                          │    │
-│  │  Binance WebSocket (aggTrade stream)                    │    │
-│  │  ↓                                                       │    │
-│  │  Every Trade: Update Real-time CVD                      │    │
-│  │  ↓                                                       │    │
-│  │  Every 60s: Refresh Exhaustion (via REST)               │    │
-│  │  ↓                                                       │    │
-│  │  CONTEXTUAL ANALYSIS                                    │    │
-│  │  - Compare current CVD vs 24h average                   │    │
-│  │  - Detect CVD anomalies (>2 std dev)                    │    │
-│  │  - Identify divergences (price vs CVD)                  │    │
-│  │  - Check exhaustion vs historical patterns              │    │
-│  │                                                          │    │
-│  └────────────────────────────────────────────────────────┘    │
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────┐    │
-│  │  ARSENAL PRECISION ENTRY                                │    │
-│  ├────────────────────────────────────────────────────────┤    │
-│  │                                                          │    │
-│  │  Arsenal Detects Setup (Confluence 85+)                 │    │
-│  │  ↓                                                       │    │
-│  │  Wait for Horus Confirmation:                           │    │
-│  │  ✓ CVD above 24h average (strong flow)                 │    │
-│  │  ✓ CVD accelerating (not decelerating)                 │    │
-│  │  ✓ No CVD divergence detected                          │    │
-│  │  ✓ Exhaustion < historical average                     │    │
-│  │  ✓ RSI in healthy range (30-70)                        │    │
-│  │  ↓                                                       │    │
-│  │  ENTER at optimal price                                 │    │
-│  │                                                          │    │
-│  └────────────────────────────────────────────────────────┘    │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘
+
+                    ARSENAL HORUS INTEGRATION                     
+                     (Hybrid Architecture)                        
+
+                                                                  
+      
+    INITIALIZATION PHASE (Once at startup)                     
+      
+                                                                
+    Binance REST API                                           
+    ↓                                                           
+    Fetch Last 500 Candles (1m, 5m, 15m)                      
+    ↓                                                           
+    Calculate Historical CVD Baseline                          
+    - Average CVD over 24h                                     
+    - CVD volatility/standard deviation                        
+    - Buy/Sell ratio trends                                    
+    ↓                                                           
+    Calculate Historical Exhaustion Baseline                   
+    - RSI distribution (5m, 15m, 1h)                           
+    - Recent exhaustion events                                 
+    - Typical reversal patterns                                
+                                                                
+      
+                                                                  
+      
+    REAL-TIME PHASE (Continuous)                               
+      
+                                                                
+    Binance WebSocket (aggTrade stream)                        
+    ↓                                                           
+    Every Trade: Update Real-time CVD                          
+    ↓                                                           
+    Every 60s: Refresh Exhaustion (via REST)                   
+    ↓                                                           
+    CONTEXTUAL ANALYSIS                                        
+    - Compare current CVD vs 24h average                       
+    - Detect CVD anomalies (>2 std dev)                        
+    - Identify divergences (price vs CVD)                      
+    - Check exhaustion vs historical patterns                  
+                                                                
+      
+                                                                  
+      
+    ARSENAL PRECISION ENTRY                                    
+      
+                                                                
+    Arsenal Detects Setup (Confluence 85+)                     
+    ↓                                                           
+    Wait for Horus Confirmation:                               
+     CVD above 24h average (strong flow)                     
+     CVD accelerating (not decelerating)                     
+     No CVD divergence detected                              
+     Exhaustion < historical average                         
+     RSI in healthy range (30-70)                            
+    ↓                                                           
+    ENTER at optimal price                                     
+                                                                
+      
+                                                                  
+
 ```
 
 ---
@@ -263,7 +263,7 @@ class ArsenalCVDCollector:
         - Buy/Sell ratio trends
         - CVD momentum patterns
         """
-        print("🔄 Fetching historical data for CVD context...")
+        print(" Fetching historical data for CVD context...")
 
         # Fetch 500 1-minute candles (8+ hours of data)
         klines_1m = await self.client.futures_klines(
@@ -364,7 +364,7 @@ class ArsenalCVDCollector:
         # Initialize real-time CVD from latest historical value
         self.cvd = cumulative_cvd
 
-        print(f"✅ Historical context built:")
+        print(f" Historical context built:")
         print(f"   24h Avg CVD: {avg_cvd:,.0f}")
         print(f"   CVD Range: {min_cvd:,.0f} to {max_cvd:,.0f}")
         print(f"   Regime: {cvd_regime} (strength: {regime_strength:.1%})")
@@ -606,9 +606,9 @@ class ArsenalCVDCollector:
    - "Is there a divergence forming?"
 
 This gives Arsenal the **context** to understand:
-- ✅ "CVD is 2.5x higher than 24h average = VERY strong flow"
-- ✅ "CVD is accelerating = momentum building"
-- ✅ "No divergence detected = price action confirmed by flow"
+-  "CVD is 2.5x higher than 24h average = VERY strong flow"
+-  "CVD is accelerating = momentum building"
+-  "No divergence detected = price action confirmed by flow"
 
 ---
 
@@ -735,7 +735,7 @@ class ArsenalLiquidityAnalyzer:
         - Normal wall sizes
         - Absorption patterns
         """
-        print("🔄 Fetching historical orderbook data...")
+        print(" Fetching historical orderbook data...")
 
         orderbook_snapshots = []
         spreads = []
@@ -856,7 +856,7 @@ class ArsenalLiquidityAnalyzer:
             snapshots_analyzed=len(orderbook_snapshots)
         )
 
-        print(f"✅ Liquidity context built:")
+        print(f" Liquidity context built:")
         print(f"   Avg Liquidity: {avg_total_liquidity:,.0f}")
         print(f"   Avg Spread: {avg_spread_bps:.2f} bps")
         print(f"   Regime: {liquidity_regime} (stability: {regime_stability:.1%})")
@@ -1277,7 +1277,7 @@ class ArsenalOrderbookAnalyzer:
         - Order size distribution
         - Market maker behavior
         """
-        print("🔄 Fetching historical orderbook depth data...")
+        print(" Fetching historical orderbook depth data...")
 
         depth_5_levels = []
         depth_10_levels = []
@@ -1379,7 +1379,7 @@ class ArsenalOrderbookAnalyzer:
             snapshots_analyzed=len(depth_5_levels)
         )
 
-        print(f"✅ Orderbook depth context built:")
+        print(f" Orderbook depth context built:")
         print(f"   Avg Depth (5 levels): {avg_depth_5:,.0f}")
         print(f"   Avg Depth (20 levels): {avg_depth_20:,.0f}")
         print(f"   Depth Regime: {depth_regime}")
@@ -1577,9 +1577,9 @@ class ArsenalOrderbookAnalyzer:
 ## NEXT STEPS
 
 Ready to implement:
-1. ✅ **horus_cvd_collector.py** (CVD with historical context)
-2. ✅ **horus_liquidity_analyzer.py** (Liquidity walls with historical context)
-3. ✅ **horus_orderbook_analyzer.py** (Depth analysis with historical context)
+1.  **horus_cvd_collector.py** (CVD with historical context)
+2.  **horus_liquidity_analyzer.py** (Liquidity walls with historical context)
+3.  **horus_orderbook_analyzer.py** (Depth analysis with historical context)
 4. ⏳ **horus_exhaustion_collector.py** (RSI exhaustion with historical context)
 5. ⏳ **horus_data_collector.py** (unified interface)
 6. ⏳ **precision_entry_system.py** (contextual entry logic)

@@ -168,19 +168,19 @@ chmod +x *.sh app/*.sh
 
 ```
 arsenal_git_ready/
-├── app/                          # Main application code
-│   ├── eyes_of_horus/           # Aegis risk management
-│   ├── helios_server.py         # Central intelligence
-│   ├── live_arsenal_horus_integrated.py  # Trading bot
-│   └── run_*.sh                 # Launch scripts
-├── Trendline_Detectory/          # Advanced detection module
-├── config_tuning/                # Configuration files
-├── SOL_Market_Data_Tool/         # Solana data utilities
-├── .env                          # Environment variables (DO NOT COMMIT)
-├── .env.example                  # Example environment file
-├── requirements.txt              # Python dependencies
-├── LAUNCH_ALL_BOTS_AUTO.sh      # Auto-launch script
-└── README.md                     # Documentation
+ app/                          # Main application code
+    eyes_of_horus/           # Aegis risk management
+    helios_server.py         # Central intelligence
+    live_arsenal_horus_integrated.py  # Trading bot
+    run_*.sh                 # Launch scripts
+ Trendline_Detectory/          # Advanced detection module
+ config_tuning/                # Configuration files
+ SOL_Market_Data_Tool/         # Solana data utilities
+ .env                          # Environment variables (DO NOT COMMIT)
+ .env.example                  # Example environment file
+ requirements.txt              # Python dependencies
+ LAUNCH_ALL_BOTS_AUTO.sh      # Auto-launch script
+ README.md                     # Documentation
 ```
 
 ---
@@ -188,9 +188,9 @@ arsenal_git_ready/
 ## For Open Source/Portfolio Use
 
 This repository is ready for:
-- ✅ GitHub/GitLab deployment
-- ✅ Job portfolio showcase
-- ✅ Open source contribution
+-  GitHub/GitLab deployment
+-  Job portfolio showcase
+-  Open source contribution
 
 **Note:** The `.gitignore` excludes:
 - Virtual environments

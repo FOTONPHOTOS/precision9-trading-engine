@@ -35,9 +35,9 @@ def test_api_keys():
             print("[1/4] Getting server time...")
             time_response = client.get_server_time()
             if time_response.get('retCode') == 0:
-                print(f"    ✅ Server time: {time_response.get('result', {}).get('timeSecond', 'N/A')}")
+                print(f"     Server time: {time_response.get('result', {}).get('timeSecond', 'N/A')}")
             else:
-                print(f"    ❌ Failed: {time_response.get('retMsg', 'Unknown error')}")
+                print(f"     Failed: {time_response.get('retMsg', 'Unknown error')}")
                 continue
             
             # Test 2: Wallet balance
@@ -46,7 +46,7 @@ def test_api_keys():
             ret_code = balance_response.get('retCode')
             
             if ret_code == 0:
-                print(f"    ✅ Balance query successful!")
+                print(f"     Balance query successful!")
                 balances = balance_response.get('result', {}).get('list', [])
                 if balances:
                     for balance_info in balances:
@@ -54,20 +54,20 @@ def test_api_keys():
                         for coin in coins:
                             wallet_balance = float(coin.get('walletBalance', 0))
                             if wallet_balance > 0:
-                                print(f"       💰 {coin.get('coin', 'N/A')}: ${wallet_balance:,.2f}")
+                                print(f"        {coin.get('coin', 'N/A')}: ${wallet_balance:,.2f}")
                 else:
                     print(f"       No balance data returned")
             else:
-                print(f"    ❌ Balance failed: {balance_response.get('retMsg', 'Unknown error')}")
+                print(f"     Balance failed: {balance_response.get('retMsg', 'Unknown error')}")
                 if ret_code == 10003 or '401' in str(balance_response):
-                    print("       ⚠️  API key invalid, expired, or wrong permissions")
+                    print("         API key invalid, expired, or wrong permissions")
                 continue
             
             # Test 3: Positions
             print("\n[3/4] Getting positions...")
             positions_response = client.get_positions(category="linear")
             if positions_response.get('retCode') == 0:
-                print(f"    ✅ Positions query successful!")
+                print(f"     Positions query successful!")
                 positions = positions_response.get('result', {}).get('list', [])
                 active = [p for p in positions if float(p.get('size', 0)) != 0]
                 if active:
@@ -77,30 +77,30 @@ def test_api_keys():
                 else:
                     print(f"       No active positions")
             else:
-                print(f"    ❌ Positions failed: {positions_response.get('retMsg')}")
+                print(f"     Positions failed: {positions_response.get('retMsg')}")
                 continue
             
             # Test 4: Account info
             print("\n[4/4] Getting account info...")
             account_response = client.get_account_info(accountType="CONTRACT")
             if account_response.get('retCode') == 0:
-                print(f"    ✅ Account info successful!")
+                print(f"     Account info successful!")
                 acc = account_response.get('result', {})
                 print(f"       Account Type: {acc.get('accountType', 'N/A')}")
                 print(f"       Margin Mode: {acc.get('marginMode', 'N/A')}")
             else:
-                print(f"    ❌ Account info failed: {account_response.get('retMsg')}")
+                print(f"     Account info failed: {account_response.get('retMsg')}")
                 continue
             
             # SUCCESS!
             print(f"\n{'='*60}")
-            print(f"✅✅✅ API KEYS ARE VALID ON {'TESTNET' if testnet else 'MAINNET'}! ✅✅✅")
+            print(f" API KEYS ARE VALID ON {'TESTNET' if testnet else 'MAINNET'}! ")
             print(f"{'='*60}\n")
             
             return testnet
             
         except Exception as e:
-            print(f"    ❌ Error: {str(e)}")
+            print(f"     Error: {str(e)}")
             continue
     
     return None
@@ -131,10 +131,10 @@ def update_env(testnet):
         f.write("# HELIOS_PORT=8009\n")
         f.write("# HELIOS_HOST=0.0.0.0\n")
     
-    print(f"    ✅ .env file updated successfully!")
+    print(f"     .env file updated successfully!")
     print(f"\n    Configuration:")
     print(f"    - API Key: {BYBIT_API_KEY[:8]}...{BYBIT_API_KEY[-4:]}")
-    print(f"    - Mode: {'TESTNET' if testnet else 'LIVE MAINNET'} ⚠️")
+    print(f"    - Mode: {'TESTNET' if testnet else 'LIVE MAINNET'} ")
     print(f"\n    File location: {env_path}\n")
 
 
@@ -150,7 +150,7 @@ def main():
         update_env(result)
         
         print(f"{'='*60}")
-        print(f"✅ READY TO LAUNCH!")
+        print(f" READY TO LAUNCH!")
         print(f"{'='*60}")
         print(f"\nLaunch commands:")
         print(f"  cd /root/arsenal_git_ready")
@@ -176,7 +176,7 @@ def main():
         print(f"{'='*60}\n")
     else:
         print(f"\n{'='*60}")
-        print(f"❌ API KEYS INVALID OR EXPIRED")
+        print(f" API KEYS INVALID OR EXPIRED")
         print(f"{'='*60}")
         print(f"\nPossible issues:")
         print(f"  1. API key has expired")
@@ -184,9 +184,9 @@ def main():
         print(f"  3. IP whitelist blocking this server")
         print(f"  4. Insufficient API permissions")
         print(f"\nRequired permissions:")
-        print(f"  ✅ Contract: Read & Write")
-        print(f"  ✅ Account: Read")
-        print(f"  ✅ Order: Read & Write")
+        print(f"   Contract: Read & Write")
+        print(f"   Account: Read")
+        print(f"   Order: Read & Write")
         print(f"\nIP Whitelist: Add 185.206.180.70 or leave unrestricted\n")
 
 

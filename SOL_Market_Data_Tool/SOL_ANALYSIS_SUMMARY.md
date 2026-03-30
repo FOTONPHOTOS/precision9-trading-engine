@@ -5,14 +5,14 @@ Analysis of 4+ years of Binance futures data (42,860 hourly records from Sept 20
 
 ## Key Discoveries
 
-### 📊 Your Recent 5-Hour Performance
+###  Your Recent 5-Hour Performance
 - **Price Movement**: +$3.75 (+2.13%) from $176.41 to $180.16
 - **Buy/Sell Ratio**: 1.472 (strong buyer dominance)
 - **Volatility**: 0.88% (below historical average)
 - **Price Range**: $175.88 - $181.69
 - **Peak Trading Hour**: 04:00 UTC
 
-### 🎯 Historical Context
+###  Historical Context
 - **Current SOL Price**: $168.03 (as of latest data)
 - **Historical Average**: $86.20
 - **All-Time Range**: $1.07 - $295.60
@@ -31,7 +31,7 @@ Found 7,539 similar 5-hour periods (+2% ±1%) in history:
 - **Win Rate**: 47.9% (slightly bearish)
 - **Recent Pattern**: Last 3 similar moves were followed by -3.9% to -4.3% corrections
 
-⚠️ **WARNING**: Recent similar patterns show consistent pullbacks after strong 5-hour rallies.
+ **WARNING**: Recent similar patterns show consistent pullbacks after strong 5-hour rallies.
 
 ### 3. Optimal Trading Hours (UTC)
 **Best Historical Hours**:
@@ -72,7 +72,7 @@ Given your move is in the 84th percentile:
 
 ### Risk Warnings
 
-#### 🔴 Critical Issues
+####  Critical Issues
 1. **CVD Anomaly**: Your tracking shows CVD of 103,458 (impossible value)
    - Indicates calculation overflow or accumulation error
    - Fix: Reset CVD at session boundaries

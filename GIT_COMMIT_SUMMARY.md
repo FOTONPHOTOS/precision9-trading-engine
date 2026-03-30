@@ -13,21 +13,21 @@ This directory has been prepared for git commit with all AI-assisted coding indi
 - Location: `/root/Downloads/`
 
 ### 2. Cleaned AI Indicators
-- **42 Python files** cleaned of emojis (✅ ❌ 📈 📉 ⚠️ 1⃣ etc.)
+- **42 Python files** cleaned of emojis (     1 etc.)
 - No colloquial AI language found (only legitimate developer comments)
 
 ### 3. Excluded from Git
 The following were **removed/excluded**:
-- ❌ Virtual environments (`myenv/`, `myenv_clean/`, `venv/`)
-- ❌ Third-party libraries (`ta-lib/`)
-- ❌ Cache files (`__pycache__/`, `*.pyc`)
-- ❌ Database files (`*.db`, `*.sqlite`)
-- ❌ JSON data files (`*.json`, `*.jsonl`)
-- ❌ Log files (`logs/`, `*.log`)
-- ❌ Trade logs (`trade_logs/`)
-- ❌ Environment files (`.env` - only `.env.example` included)
-- ❌ Large binaries (`*.tar.gz`, `*.gif`)
-- ❌ Backup files (`*.bak`, `*.backup`, `*.old`)
+-  Virtual environments (`myenv/`, `myenv_clean/`, `venv/`)
+-  Third-party libraries (`ta-lib/`)
+-  Cache files (`__pycache__/`, `*.pyc`)
+-  Database files (`*.db`, `*.sqlite`)
+-  JSON data files (`*.json`, `*.jsonl`)
+-  Log files (`logs/`, `*.log`)
+-  Trade logs (`trade_logs/`)
+-  Environment files (`.env` - only `.env.example` included)
+-  Large binaries (`*.tar.gz`, `*.gif`)
+-  Backup files (`*.bak`, `*.backup`, `*.old`)
 
 ---
 
