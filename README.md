@@ -15,6 +15,8 @@ A professional algorithmic trading system for cryptocurrency futures markets fea
 - **Smart Money Concepts** integration
 - **Precision entry/exit** with Horus system
 
+⚠️ NOTE ON V14 ARCHITECTURE (RUTHLESS SENTINEL) ⚠️
+This repository contains the legacy/core engine of Precision9. The current V14 production architecture—featuring the Rust-based Unix Socket Harvester, Custom 3B-Parameter GGUF Local LLM, and Byzantine Fault Tolerant Multi-Exchange Triangulation—is kept entirely proprietary. If you are a founder or prop firm looking to license this architecture or hire me to build a custom implementation, please reach out via Upwork or LinkedIn.
 ---
 
 ##  Features
